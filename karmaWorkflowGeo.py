@@ -17,9 +17,9 @@ if __name__ == "__main__":
     java_import(sc._jvm, "edu.isi.karma")
     inputFilename = argv[1]
     outputFilename = argv[2]
-    contextUrlcity = "https://raw.githubusercontent.com/ZhengTang1120/geonames/master/city_context.json"
-    contextUrlstate = "https://raw.githubusercontent.com/ZhengTang1120/geonames/master/state_context.json"
-    contextUrlcountry = "https://raw.githubusercontent.com/ZhengTang1120/geonames/master/country_context.json"
+    contextUrlcity = "https://raw.githubusercontent.com/usc-isi-i2/dig-geonames/master/city_context.json"
+    contextUrlstate = "https://raw.githubusercontent.com/usc-isi-i2/dig-geonames/master/state_context.json"
+    contextUrlcountry = "https://raw.githubusercontent.com/usc-isi-i2/dig-geonames/master/country_context.json"
 
     fileUtil = FileUtil(sc)
     workflow = Workflow(sc)
@@ -29,21 +29,21 @@ if __name__ == "__main__":
     inputRDD_partitioned = inputRDD.partitionBy(100)
     #2. Apply the karma Model
     cityRDD1 = workflow.run_karma(inputRDD_partitioned,
-                                   "https://raw.githubusercontent.com/ZhengTang1120/geonames/master/city_model.ttl",
+                                   "https://raw.githubusercontent.com/usc-isi-i2/dig-geonames/master/city_model.ttl",
                                    "http://dig.isi.edu/geonames",
                                    "http://schema.org/City1",
                                    contextUrlcity,
                                    data_type="csv",
                                    additional_settings={"karma.input.delimiter":"\t", "rdf.generation.disable.nesting":"false"})
     stateRDD1 = workflow.run_karma(inputRDD_partitioned,
-                                   "https://raw.githubusercontent.com/ZhengTang1120/geonames/master/state_model.ttl",
+                                   "https://raw.githubusercontent.com/usc-isi-i2/dig-geonames/master/state_model.ttl",
                                    "http://dig.isi.edu/geonames",
                                    "http://schema.org/State1",
                                    contextUrlstate,
                                    data_type="csv",
                                    additional_settings={"karma.input.delimiter":"\t", "rdf.generation.disable.nesting":"false"})
     countryRDD1 = workflow.run_karma(inputRDD_partitioned,
-                                   "https://raw.githubusercontent.com/ZhengTang1120/geonames/master/country_model.ttl",
+                                   "https://raw.githubusercontent.com/usc-isi-i2/dig-geonames/master/country_model.ttl",
                                    "http://dig.isi.edu/geonames",
                                    "http://schema.org/Country1",
                                    contextUrlcountry,
