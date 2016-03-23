@@ -1,0 +1,1529 @@
+{
+  "took": 793,
+  "timed_out": false,
+  "_shards": {
+    "total": 40,
+    "successful": 40,
+    "failed": 0
+  },
+  "hits": {
+    "total": 61802946,
+    "max_score": 0,
+    "hits": []
+  },
+  "aggregations": {
+    "xxx": {
+      "doc_count": 3009476,
+      "city": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 958190,
+        "buckets": [
+          {
+            "key": "Washington Dc A Div Div",
+            "doc_count": 248427,
+            "top_tag_hits": {
+              "hits": {
+                "total": 248427,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/32B41FDA7FB8EA7E7C35E651CECC8E48548FE787/1405945092000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Washington Dc A Div Div",
+                            "addressRegion": "S",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Southern Maryland A Div Div",
+            "doc_count": 69046,
+            "top_tag_hits": {
+              "hits": {
+                "total": 69046,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/31D1E6C7553159E313140657CC72AD7705B517C9/1416411783000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Southern Maryland A Div Div",
+                            "addressRegion": "S",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Chicago Escorts A Div Div",
+            "doc_count": 65387,
+            "top_tag_hits": {
+              "hits": {
+                "total": 65387,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/889FA686076AA77C75C61B89C99F82A70032F607/1438255795000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Chicago Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Manhattan Escorts A Div Div",
+            "doc_count": 65328,
+            "top_tag_hits": {
+              "hits": {
+                "total": 65328,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/7FFB69A69032A59A70F32A438F5AF386055FBB92/1438258492000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Manhattan Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Atlanta Escorts A Div Div",
+            "doc_count": 59096,
+            "top_tag_hits": {
+              "hits": {
+                "total": 59096,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/C4FE62837ED7BB158CEEBD538013CA43FEBC7C18/1438258494000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Atlanta Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Los Angeles Escorts A Div Div",
+            "doc_count": 56102,
+            "top_tag_hits": {
+              "hits": {
+                "total": 56102,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/EFE2077099348F2B8674B2ACEEA0D2545C244B2A/1438254713000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Los Angeles Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Queens Escorts A Div Div",
+            "doc_count": 54202,
+            "top_tag_hits": {
+              "hits": {
+                "total": 54202,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/5BC656D166FD9BF88D115D4D458F6C66E5934BAE/1438258134000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Queens Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Washington Dc Escorts A Div Div",
+            "doc_count": 53744,
+            "top_tag_hits": {
+              "hits": {
+                "total": 53744,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/AFAD310369192248BFDA8F7290FCA6019619B366/1438254471000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Washington Dc Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "San Jose Escorts A Div Div",
+            "doc_count": 51509,
+            "top_tag_hits": {
+              "hits": {
+                "total": 51509,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/9B82E347650BE7DDDAA27530B556D763EB3025A5/1438287777000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "San Jose Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "New Hampshire A Div Div",
+            "doc_count": 50037,
+            "top_tag_hits": {
+              "hits": {
+                "total": 50037,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/33462749DB0422894A68038DF879116CB5D668EA/1405940780000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "New Hampshire A Div Div",
+                            "addressRegion": "S",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Delaware A Div Div",
+            "doc_count": 48768,
+            "top_tag_hits": {
+              "hits": {
+                "total": 48768,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/31D146697CBBBE79233A932389B9EEFC28A67A2B/1426388321000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Delaware A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Houston Escorts A Div Div",
+            "doc_count": 46205,
+            "top_tag_hits": {
+              "hits": {
+                "total": 46205,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/17E963A82F94976B206E9E3A6D869F7C15203C30/1438258132000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Houston Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Northern Virginia Escorts A Div Div",
+            "doc_count": 45872,
+            "top_tag_hits": {
+              "hits": {
+                "total": 45872,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/702C94D444D3781B88DBA5BD7DBB841CBBC1D55A/1438260171000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Northern Virginia Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Las Vegas Escorts A Div Div",
+            "doc_count": 45665,
+            "top_tag_hits": {
+              "hits": {
+                "total": 45665,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/1DF6210A4C39414A1B06B610D8FD0BC1518607CA/1438263171000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Las Vegas Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Oakland East Bay Escorts A Div Div",
+            "doc_count": 43820,
+            "top_tag_hits": {
+              "hits": {
+                "total": 43820,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/426C714B638F18F405DEA757E966795E9314C386/1438258011000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Oakland East Bay Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Toronto Escorts A Div Div",
+            "doc_count": 39424,
+            "top_tag_hits": {
+              "hits": {
+                "total": 39424,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/E108533799A090E6FA27B59149DAEBEC7ADD4009/1438261013000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Toronto Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "San Diego Escorts A Div Div",
+            "doc_count": 38732,
+            "top_tag_hits": {
+              "hits": {
+                "total": 38732,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/D9D5B3B5E701CC6B6BCA7F15FED88FB5B524BDE4/1438264793000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "San Diego Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Denver Escorts A Div Div",
+            "doc_count": 37208,
+            "top_tag_hits": {
+              "hits": {
+                "total": 37208,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/6E42CCE4B24F03A2289A83712CE85CF28EE5C2F0/1438254171000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Denver Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Detroit Escorts A Div Div",
+            "doc_count": 37098,
+            "top_tag_hits": {
+              "hits": {
+                "total": 37098,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/E92105E0CCB414CD2E51EA019BC21FBA6AEBD14E/1438258313000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Detroit Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Edmonton Escorts A Div Div",
+            "doc_count": 36385,
+            "top_tag_hits": {
+              "hits": {
+                "total": 36385,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/8365B42F556294ABE53723E8715EA461A78F8798/1438257652000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Edmonton Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Long Island Escorts A Div Div",
+            "doc_count": 35800,
+            "top_tag_hits": {
+              "hits": {
+                "total": 35800,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/C5B9C7A4FCC548599FDA2AC093748827EDE4F4AC/1438258733000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Long Island Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Fort Lauderdale Escorts A Div Div",
+            "doc_count": 35665,
+            "top_tag_hits": {
+              "hits": {
+                "total": 35665,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/D1A586B197BD11871FD8196D643DFA8679A9FFA2/1438283337000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Fort Lauderdale Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Orange County Escorts A Div Div",
+            "doc_count": 35526,
+            "top_tag_hits": {
+              "hits": {
+                "total": 35526,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/1AF863DABE8BC74D0079473EBDE76FE580A3734E/1438265452000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Orange County Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Seattle Escorts A Div Div",
+            "doc_count": 34874,
+            "top_tag_hits": {
+              "hits": {
+                "total": 34874,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/1D3114D8298B25D651E36793D080A6339382C72B/1438263112000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Seattle Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Miami Escorts A Div Div",
+            "doc_count": 34760,
+            "top_tag_hits": {
+              "hits": {
+                "total": 34760,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/0ADDD0B07472A441948B9ED9A43CC92C923398C7/1438265511000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Miami Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Brooklyn Escorts A Div Div",
+            "doc_count": 33223,
+            "top_tag_hits": {
+              "hits": {
+                "total": 33223,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/E17EC9F40E5FED05036C82E6BFF3DF2681FB342B/1438258194000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Brooklyn Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Tampa Escorts A Div Div",
+            "doc_count": 32861,
+            "top_tag_hits": {
+              "hits": {
+                "total": 32861,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/DD6AFE0F87923F92F253D051A26423DB530D42B0/1438259995000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Tampa Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "San Francisco Escorts A Div Div",
+            "doc_count": 32847,
+            "top_tag_hits": {
+              "hits": {
+                "total": 32847,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/707B3B906872D229FEAD5E8D550BCBB1A6AFAC13/1438215777000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "San Francisco Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "North Jersey Escorts A Div Div",
+            "doc_count": 32705,
+            "top_tag_hits": {
+              "hits": {
+                "total": 32705,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/83A5A3ED3142F01963DCAC35CD1CA99757CEBFC0/1438256994000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "North Jersey Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Phoenix Escorts A Div Div",
+            "doc_count": 31935,
+            "top_tag_hits": {
+              "hits": {
+                "total": 31935,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/1E7D69235678579B4647C19C216DBE3FCDEDCDF2/1438270973000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Phoenix Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Sacramento Escorts A Div Div",
+            "doc_count": 31776,
+            "top_tag_hits": {
+              "hits": {
+                "total": 31776,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/6F8C2060CAB7B381FEFB4D8C10FB10D96F68FC52/1438257112000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Sacramento Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Montreal Escorts A Div Div",
+            "doc_count": 30932,
+            "top_tag_hits": {
+              "hits": {
+                "total": 30932,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/FEE0057D9DE1B49CABDE521F9A058B9843AE4653/1438293957000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Montreal Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Calgary Escorts A Div Div",
+            "doc_count": 29563,
+            "top_tag_hits": {
+              "hits": {
+                "total": 29563,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/3A4078A2687D2A64A1B99323539D77DC630E169F/1438262634000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Calgary Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Inland Empire Escorts A Div Div",
+            "doc_count": 29470,
+            "top_tag_hits": {
+              "hits": {
+                "total": 29470,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/B970BFC2124EBB0F134759B9780D7E8A8DE51A33/1438290113000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Inland Empire Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Charlotte Escorts A Div Div",
+            "doc_count": 29223,
+            "top_tag_hits": {
+              "hits": {
+                "total": 29223,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/DDE98F5A68C010149EB87F93BF6A57444F06EBA0/1438267375000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Charlotte Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Orlando Escorts A Div Div",
+            "doc_count": 29153,
+            "top_tag_hits": {
+              "hits": {
+                "total": 29153,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/BC0A19BD30478E5F3B75ADCEC2ACAB67C232E127/1438255973000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Orlando Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Philadelphia Escorts A Div Div",
+            "doc_count": 28995,
+            "top_tag_hits": {
+              "hits": {
+                "total": 28995,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/EFD7CD54AC3AA160896B8446D98B9B6C20226204/1438255733000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Philadelphia Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Boston Escorts A Div Div",
+            "doc_count": 28864,
+            "top_tag_hits": {
+              "hits": {
+                "total": 28864,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/EEF55CCDC03DF84C7EDB20A05F540B647886F4FB/1438296902000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Boston Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Baltimore Escorts A Div Div",
+            "doc_count": 27670,
+            "top_tag_hits": {
+              "hits": {
+                "total": 27670,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/DDEE2450A399041965946BD0D56D755BB4FABC24/1438254652000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Baltimore Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Bronx Escorts A Div Div",
+            "doc_count": 26012,
+            "top_tag_hits": {
+              "hits": {
+                "total": 26012,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/14B682E37404CA359A517F6EE5A057D8DE289F1A/1438264194000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Bronx Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Raleigh Escorts A Div Div",
+            "doc_count": 24800,
+            "top_tag_hits": {
+              "hits": {
+                "total": 24800,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/194AF13D31363BB5F85C9B8576DE8CE94DD1B7FA/1438260713000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Raleigh Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Dallas Fort Worth Escorts A Div Div",
+            "doc_count": 24467,
+            "top_tag_hits": {
+              "hits": {
+                "total": 24467,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/2A5703AA3F76A9837F7F735F988FB90F7EA4848D/1438029944000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Dallas Fort Worth Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "North Bay Escorts A Div Div",
+            "doc_count": 24194,
+            "top_tag_hits": {
+              "hits": {
+                "total": 24194,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/12616C31A1CA6FBC8E1FD70BE52E3F74057EE260/1438260531000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "North Bay Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "San Fernando Valley Escorts A Div Div",
+            "doc_count": 23122,
+            "top_tag_hits": {
+              "hits": {
+                "total": 23122,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/89F4EDB05E01C5FF22EBA7AA7A4E36E1948C10B9/1438271397000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "San Fernando Valley Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "West Virginia A Div Div",
+            "doc_count": 22997,
+            "top_tag_hits": {
+              "hits": {
+                "total": 22997,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/340042989923FB6B038545877BF5C2C6172CD736/1405753756000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "West Virginia A Div Div",
+                            "addressRegion": "S",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Austin Escorts A Div Div",
+            "doc_count": 22238,
+            "top_tag_hits": {
+              "hits": {
+                "total": 22238,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/A51AFAC38B7FF7E8D5B68CEA63F2FDBE8272968C/1438260291000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Austin Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Westchester Escorts A Div Div",
+            "doc_count": 22065,
+            "top_tag_hits": {
+              "hits": {
+                "total": 22065,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/D8708E61517A455C34741B07A156F0EE9EF3DF84/1438286393000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Westchester Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Minneapolis St Paul Escorts A Div Div",
+            "doc_count": 21443,
+            "top_tag_hits": {
+              "hits": {
+                "total": 21443,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/84912FFB0DBAB2D47BBE2F8C152379F2AA1FBC95/1438262572000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Minneapolis St Paul Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Portland Escorts A Div Div",
+            "doc_count": 21071,
+            "top_tag_hits": {
+              "hits": {
+                "total": 21071,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/E58B3F0191385CD5CCB303FAB6E66262347764AE/1438271871000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Portland Escorts A Div Div",
+                            "addressRegion": "B Window"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Southern Maryland Escorts A Div Div",
+            "doc_count": 20980,
+            "top_tag_hits": {
+              "hits": {
+                "total": 20980,
+                "max_score": 1,
+                "hits": [
+                  {
+                    "_index": "dig-ht-pilot-unfiltered04",
+                    "_type": "WebPage",
+                    "_id": "http://dig.isi.edu/ht/data/page/5027D7204EE56D980F395A9DC616B57173644D00/1438265876000/processed",
+                    "_score": 1,
+                    "_source": {
+                      "hasFeatureCollection": {
+                        "place_postalAddress_feature": {
+                          "featureObject": {
+                            "addressLocality": "Southern Maryland Escorts A Div Div",
+                            "addressRegion": "B Window",
+                            "addressCountry": {
+                              "a": "Country",
+                              "uri": "http://dig.isi.edu/ht/data/country/"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

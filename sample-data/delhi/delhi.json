@@ -1,0 +1,2155 @@
+{
+    "took": 2956,
+    "timed_out": false,
+    "_shards": {
+        "total": 40,
+        "successful": 40,
+        "failed": 0
+    },
+    "hits": {
+        "total": 61802946,
+        "max_score": 0,
+        "hits": []
+    },
+    "aggregations": {
+        "xxx": {
+            "doc_count": 111305,
+            "city": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 5,
+                "buckets": [
+                    {
+                        "key": "New Delhi",
+                        "doc_count": 39720,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 39720,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/34848C9917740BBF9C8E6BFB1BBC83CA4CD30B87/1406553698000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": {
+                                                    "featureObject": {
+                                                        "addressLocality": "New Delhi"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Delhi",
+                        "doc_count": 11191,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 11191,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/3100D24891469E85C92F92DF94F450D6BE8800C4/1415453837000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": {
+                                                    "featureObject": {
+                                                        "addressLocality": "Delhi",
+                                                        "addressCountry": {
+                                                            "a": "Country",
+                                                            "uri": "http://dig.isi.edu/ht/data/country/DL"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Gurgaon",
+                        "doc_count": 691,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 691,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/3322AA902F3EBA6463821CDDCB5FEFA279AF54D0/1396822566000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Gurgaon",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Gurgaon",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Noida",
+                        "doc_count": 213,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 213,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/8238BACAADE3DFA489F1765EC48B3FA8162B6F22/1396822232000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Noida",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Noida",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Mahipalpur",
+                        "doc_count": 115,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 115,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/3335350ED1E5EFD222C100F8F495613C56F8F24D/1396821778000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Mahipalpur",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Mahipalpur",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Paharganj",
+                        "doc_count": 109,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 109,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/6A4C6F8C619E325CE2B89417A467934585FCC850/1396821999000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Paharganj",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Paharganj",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Dwarka",
+                        "doc_count": 90,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 90,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/626046A480F865275D5EF6B8CCA0B8496E088E96/1396820081000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Dwarka",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Dwarka",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Indirapuram",
+                        "doc_count": 75,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 75,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/80DDCF27E3E769FB24943BDF57954DB1D319D53A/1396821731000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Indirapuram",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Indirapuram",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Vaishali",
+                        "doc_count": 66,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 66,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/EE2E689155AD8CA4972E6631AEA933144FFF8818/1396822595000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Vaishali",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Vaishali",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Vasundhara",
+                        "doc_count": 52,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 52,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/181DA9D8C5348FD19B6D5533906035CCF61A05B6/1396821998000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Vasundhara",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Vasundhara",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Kalkaji",
+                        "doc_count": 37,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 37,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/4C6360122773FCCFD726F2214AFB52EE28FADF17/1396818675000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Kalkaji",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Kalkaji",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Delhi Greenpark",
+                        "doc_count": 34,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 34,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/DE0E36949AC5D160B5A3396FAA1E30DD0CADC670/1415439615000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": {
+                                                    "featureObject": {
+                                                        "addressLocality": "Delhi Greenpark",
+                                                        "addressCountry": {
+                                                            "a": "Country",
+                                                            "uri": "http://dig.isi.edu/ht/data/country/DL"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Chanakyapuri",
+                        "doc_count": 24,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 24,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/B26BCC5F67D702CA81BBF6725DEE29B28FD90746/1396821731000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Chanakyapuri",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Chanakyapuri",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "India",
+                        "doc_count": 23,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 23,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/1106C8126CF189DDD77B393E413BB9D6BF7B3199/1396837259000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "India",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "India",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/india"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Indrapuram",
+                        "doc_count": 14,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 14,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/DD7FB390062F3ED669896AAA05B0614AEFDCEC93/1396820186000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Indrapuram",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Indrapuram",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Saket",
+                        "doc_count": 12,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 12,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/D931F9EF5D48FB87A8D04FFAA88FA6B7388ACBBC/1396822225000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Saket",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Saket",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Vasundhra",
+                        "doc_count": 11,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 11,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/1A2B18EF01BA063060880D12CC0EF29E95ED12EA/1396820062000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Vasundhra",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Vasundhra",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Munirka",
+                        "doc_count": 9,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 9,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/5CBF939BA67BFB5E1E0DC2E844DC1B4F44C6B9B9/1396822480000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Munirka",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Munirka",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Rohan",
+                        "doc_count": 9,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 9,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/FDC773E403798F8C67E8251C957AE6F9F63C9310/1396828474000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Rohan",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Rohan",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Safdarjung",
+                        "doc_count": 8,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 8,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/7C08C8A4C4C0ADFB4E91F13901D0E362F51A33C6/1396821777000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Safdarjung",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Safdarjung",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "India New Delhi",
+                        "doc_count": 7,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 7,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/755242384E15B5D8A6FF54C3499DDD748138BEDD/1413962799000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": {
+                                                    "featureObject": {
+                                                        "addressLocality": "India New Delhi"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Mehrauli",
+                        "doc_count": 7,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 7,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/EF0CED934F23CA470353AAB9EE0921FD52C0C39A/1396822103000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Mehrauli",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Mehrauli",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Kaushambi",
+                        "doc_count": 6,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 6,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/09AF83BB89364053CC1A341C090E8EF3954BA192/1396822480000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Kaushambi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Kaushambi",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Ghaziabad",
+                        "doc_count": 5,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 5,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/B767534EB536505F79CB62C826D305335F85469F/1396822109000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Ghaziabad",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Ghaziabad",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Rohini",
+                        "doc_count": 5,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 5,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/D11E777F2C3923A845EA6B851DA03963E40E320E/1396822109000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Rohini",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Rohini",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "9990110727",
+                        "doc_count": 4,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 4,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/09594344D9CC070BD039CCD2B97C35385F909152/1396841763000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "9990110727"
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "9990110727",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Janpath",
+                        "doc_count": 4,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 4,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/DFB7947944E5B1CA30A5AB93918D918558A2D03D/1396822225000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Janpath",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Janpath",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Kartik",
+                        "doc_count": 4,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 4,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/C2ABB353844496226984D6683A364A0316703AED/1396832224000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Kartik"
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Kartik",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/india"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Ramprastha",
+                        "doc_count": 4,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 4,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/42B2DD47013B5BFC1BC1945342147FCA86D423E6/1396821885000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Ramprastha",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Ramprastha",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Cp",
+                        "doc_count": 3,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 3,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/D7FCC81652C8A4559454E355003AE9193AFBCB01/1396837585000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Cp",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Cp",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/india"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Mumbai",
+                        "doc_count": 3,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 3,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/CAA52FC6143A213671CE2A6D623C7691016362FF/1396830294000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Mumbai"
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Mumbai",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Agra",
+                        "doc_count": 2,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 2,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/3447D77F789EB2EC2327D9C4FCA552F243BC2216/1396822239000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Agra",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Agra",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Gk",
+                        "doc_count": 2,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 2,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/521EDEAAB73AA0F3DB03AA263CCE456E69CB9CA4/1396820079000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Gk",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Gk",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Gurgon",
+                        "doc_count": 2,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 2,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/F00F79919DF9DCCDFB0B7E22EF5E021868884BBD/1396820437000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Gurgon",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Gurgon",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Vasantkunj",
+                        "doc_count": 2,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 2,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/C93ACB45E8583313B6D4081DD947C531D010BB41/1396819524000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Vasantkunj",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Vasantkunj",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "9871484238",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/0F5AE74E0B9E392A0F3309385341E4A686FF6E94/1396841763000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "9871484238"
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "9871484238",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Anywhere",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/F23BFFBE90F7CF2E5FB0F313A15429C318ED8C52/1396830646000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Anywhere"
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Anywhere",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Delhi Ncr",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/68E3EAA57A5E0E3A4A183426E63C908C22B36869/1418974704000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": {
+                                                    "featureObject": {
+                                                        "addressLocality": "Delhi Ncr",
+                                                        "addressCountry": {
+                                                            "a": "Country",
+                                                            "uri": "http://dig.isi.edu/ht/data/country/"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Guorgoan",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/CF6A89EB8A8FE9EBF651F261D55AC09A004E2698/1396841359000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Guorgoan"
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Guorgoan",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Hasanpur",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/378E9506C5227D8D7C9B43D9B88D671D690C8783/1396822224000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Hasanpur",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Hasanpur",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Indraprastha",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/E476A9D363A86A70FB463E1F877D76B7080E1C36/1396822225000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Indraprastha",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Indraprastha",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Juhu",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/834DEA9EA974E70327958D96A5959C34464FA1E1/1396826723000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Juhu",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Juhu",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Karkardooma",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/279005E25772FC159363C17934FCB0FECFB5E44B/1396822224000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Karkardooma",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Karkardooma",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Karolbagh",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/7B9CDF5E6590CAAB6775D44EDD4CED5FD5726597/1396819535000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Karolbagh",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Karolbagh",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Laxminagar",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/F18C12F50D93E40EBCA16240C66213205A2FBB2A/1396827118000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Laxminagar",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Laxminagar",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Mathura",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/B27C49543D6FE2EEEB9C784F06FB1B0297761D0F/1396822239000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Mathura",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Mathura",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Merced Livingston Delhi",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/787ED957BF88FD0BE352DEAEDA2C3B8A959E108E/1398889453000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": {
+                                                    "featureObject": {
+                                                        "addressLocality": "Merced Livingston Delhi"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Moolchand",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/E286195092BDBED5EBB752A5E04EAF420091F7D8/1396822480000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Moolchand",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Moolchand",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Nizamuddin",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/04B8CCEF35E6FD9A527E75AD8BC03A99E5D0FC8D/1396818656000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Nizamuddin",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Nizamuddin",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "Pahargang",
+                        "doc_count": 1,
+                        "top_tag_hits": {
+                            "hits": {
+                                "total": 1,
+                                "max_score": 1,
+                                "hits": [
+                                    {
+                                        "_index": "dig-ht-pilot-unfiltered04",
+                                        "_type": "WebPage",
+                                        "_id": "http://dig.isi.edu/ht/data/page/8129C18A8D3D5177120F86C3B9B5E4A3EB3223D1/1396820062000/processed",
+                                        "_score": 1,
+                                        "_source": {
+                                            "hasFeatureCollection": {
+                                                "place_postalAddress_feature": [
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Pahargang",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "featureObject": {
+                                                            "addressLocality": "Pahargang",
+                                                            "addressRegion": "Delhi",
+                                                            "addressCountry": {
+                                                                "a": "Country",
+                                                                "isoCode": "IN",
+                                                                "label": "India",
+                                                                "uri": "http://dig.isi.edu/ht/data/country/India"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
