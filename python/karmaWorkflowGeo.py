@@ -75,10 +75,10 @@ if __name__ == "__main__":
     fileUtil.save_file(stateRDD, outputFilename+"_State", "text", "json")
 
 
-    mergeRDD1 = EntityMerger.merge_rdds(stateRDD, "address.addressCountry", countryRDD,100)
-    fileUtil.save_file(mergeRDD1, outputFilename+"_State_Country", "text", "json")
+    mergeRDD1 = EntityMerger.merge_rdds(cityRDD, "address.addressCountry", countryRDD,100)
+    # fileUtil.save_file(mergeRDD1, outputFilename+"_State_Country", "text", "json")
 
-    mergeRDD2 = EntityMerger.merge_rdds(cityRDD, "address.addressRegion", mergeRDD1,100)
+    mergeRDD2 = EntityMerger.merge_rdds(mergeRDD1, "address.addressRegion", stateRDD,100)
 
     #3. Save the output
     fileUtil.save_file(mergeRDD2, outputFilename, "text", "json")
