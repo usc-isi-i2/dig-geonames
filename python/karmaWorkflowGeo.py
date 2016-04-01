@@ -30,7 +30,8 @@ if __name__ == "__main__":
 
     java_import(sc._jvm, "edu.isi.karma")
     inputFilename = args[0]
-    outputFilename = args[1]
+    input_country = args[1]
+    outputFilename = args[2]
     city_context = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/datasets/geonames/allCountries/city_context.json"
     state_context = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/datasets/geonames/allCountries/state_context.json"
     country_context = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/datasets/geonames/allCountries/country_context.json"
@@ -40,6 +41,8 @@ if __name__ == "__main__":
 
     # 1. Read the input
     inputRDD = workflow.batch_read_csv(inputFilename)
+    input_country_rdd =  workflow.batch_read_csv(input_country)
+
     inputRDD_partitioned = inputRDD.partitionBy(100)
 
     #2. Apply the karma Model
@@ -57,8 +60,8 @@ if __name__ == "__main__":
                                    state_context,
                                    data_type="csv",
                                    additional_settings={"karma.input.delimiter":"\t", "rdf.generation.disable.nesting":"false"})
-    countryRDD1 = workflow.run_karma(inputRDD_partitioned,
-                                   "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/datasets/geonames/allCountries/country_model.ttl",
+    countryRDD1 = workflow.run_karma(input_country_rdd,
+                                   "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/datasets/geonames/countries/country-model.ttl",
                                    "http://dig.isi.edu/geonames",
                                    "http://schema.org/Country1",
                                    country_context,
