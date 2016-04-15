@@ -2,10 +2,21 @@
 
 import json
 import faerie
-from pyspark.sql import Row
-import Toolkit
 import time
 
+# Given a path in json, return value if path, full path denoted by . (example address.name) exists, otherwise return ''
+def get_value_json(path, doc, separator='.'):
+    paths = path.strip().split(separator)
+    for field in paths:
+        if field in doc:
+            doc = doc[field]
+        else:
+            return ''
+
+    if type(doc) == dict or type(doc) == list:
+        return json.dumps(doc)
+    else:
+        return doc
 #get the city query line from input and return candidates in spark row format.
 def processDoc(line, d):
     uri = line["uri"]
@@ -24,15 +35,15 @@ def processDoc(line, d):
     if cities_can and 'entities' in cities_can:
         for eid in cities_can["entities"]:
             entity = cities_can["entities"][eid]
-            snc = Toolkit.get_value_json(eid + "$snc", d.value.all_city_dict,'$')
+            snc = get_value_json(eid + "$snc", d.value.all_city_dict,'$')
             if snc != '':
-                temp = Row(id=eid,value=entity["value"] + ","+snc,candwins=entity["candwins"])
+                temp = {"id":eid,"value":entity["value"] + ","+snc,"candwins":entity["candwins"]}
                 jsent.append(temp)
             else:
-                temp = Row(id=eid,value=entity["value"] ,candwins=entity["candwins"])
+                temp = {"id":eid,"value":entity["value"] ,"candwins":entity["candwins"]}
                 jsent.append(temp)
-        jsdoc = Row(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
-        jsonline = Row(document=jsdoc,entities=jsent, processtime=process_time)
+        jsdoc = {"id":cities_can["document"]["id"],"value":cities_can["document"]["value"] + ","+state+","+country}
+        jsonline = {"document":jsdoc,"entities":jsent, "processtime":process_time}
         return jsonline
     else:
         "cities_can has no entities:", city + "," + state + "," + country + "," + uri
