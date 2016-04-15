@@ -32,6 +32,7 @@ if __name__ == "__main__":
     inputFilename = args[0]
     input_country = args[1]
     outputFilename = args[2]
+    city_alternate_name_input = args[3]
     city_context = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/datasets/geonames/allCountries/city_context.json"
     state_context = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/datasets/geonames/allCountries/state_context.json"
     country_context = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/datasets/geonames/allCountries/country_context.json"
@@ -42,6 +43,8 @@ if __name__ == "__main__":
     # 1. Read the input
     inputRDD = workflow.batch_read_csv(inputFilename)
     input_country_rdd =  workflow.batch_read_csv(input_country)
+    input_alternate_city_rdd = workflow.batch_read_csv(city_alternate_name_input)
+    print input_alternate_city_rdd.first()
 
     inputRDD_partitioned = inputRDD.partitionBy(100)
 
@@ -53,6 +56,15 @@ if __name__ == "__main__":
                                    city_context,
                                    data_type="csv",
                                    additional_settings={"karma.input.delimiter":"\t", "rdf.generation.disable.nesting":"false"})
+
+    city_alternate_names_rdd = workflow.run_karma(input_alternate_city_rdd,
+                                   "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/datasets/geonames/city-alternatenames/city-alternate-names-model.ttl",
+                                   "http://dig.isi.edu/geonames",
+                                   "http://schema.org/City1",
+                                   city_context,
+                                   data_type="csv",
+                                   additional_settings={"karma.input.delimiter":"\t", "rdf.generation.disable.nesting":"false"})
+
     stateRDD1 = workflow.run_karma(inputRDD_partitioned,
                                    "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/datasets/geonames/allCountries/state_model.ttl",
                                    "http://dig.isi.edu/geonames",
@@ -72,16 +84,21 @@ if __name__ == "__main__":
     cityRDD = workflow.apply_context(cityRDD1, city_context)
     stateRDD = workflow.apply_context(stateRDD1, state_context)
     countryRDD = workflow.apply_context(countryRDD1, country_context)
+    cityAlternateRDD = workflow.apply_context(city_alternate_names_rdd, city_context)
 
-    fileUtil.save_file(countryRDD, outputFilename+"_Country", "text", "json")
-    fileUtil.save_file(cityRDD, outputFilename+"_City", "text", "json")
-    fileUtil.save_file(stateRDD, outputFilename+"_State", "text", "json")
+    city_reduced_rdd = workflow.reduce_rdds(cityRDD, cityAlternateRDD)
+
+    # fileUtil.save_file(countryRDD, outputFilename+"_Country", "text", "json")
+    # fileUtil.save_file(city_reduced_rdd, outputFilename+"_City", "text", "json")
+    # fileUtil.save_file(stateRDD, outputFilename+"_State", "text", "json")
+    fileUtil.save_file(cityAlternateRDD, outputFilename+"_cityalternate", "text", "json")
 
 
-    mergeRDD1 = EntityMerger.merge_rdds(cityRDD, "address.addressCountry", countryRDD,100)
+    mergeRDD1 = EntityMerger.merge_rdds(city_reduced_rdd, "address.addressCountry", countryRDD,100)
     # fileUtil.save_file(mergeRDD1, outputFilename+"_State_Country", "text", "json")
 
     mergeRDD2 = EntityMerger.merge_rdds(mergeRDD1, "address.addressRegion", stateRDD,100)
 
     #3. Save the output
-    fileUtil.save_file(mergeRDD2, outputFilename, "text", "json")
+    mergeRDD2_filter = mergeRDD2.filter(lambda x: 'populationOfArea' in x[1])
+    fileUtil.save_file(mergeRDD2_filter, outputFilename, "text", "json")
