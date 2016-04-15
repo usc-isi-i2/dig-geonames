@@ -1,9 +1,7 @@
 import codecs
 import json
 from optparse import OptionParser
-
 import faerie
-
 import tagging
 
 
