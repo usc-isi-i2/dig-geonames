@@ -82,6 +82,8 @@ def search(country_can, uri, state, city, d):
 
 #search the city candidates.
 def searchcity(states_can, uri, city, d):
+    config = dict(dictionary={"id_attribute": "uri", "value_attribute": ["name"]},
+                     document={"id_attribute": "uri", "value_attribute": ["name"]}, token_size=2, threshold=0.5)
     queryline = {"uri":uri,"name":city}
     cities_can = {}
     if states_can and states_can != {} and states_can["entities"] != {}:
@@ -89,16 +91,16 @@ def searchcity(states_can, uri, city, d):
             country_uri = d.value.state_dict[state_uri]["country_uri"]
             if country_uri != '':
                 if 'entities' in cities_can:
-                    cities_can_add = faerie.processDoc(queryline, d.value.all_faerie_dict[country_uri][state_uri]["cities"],0.5)
+                    cities_can_add = faerie.processDoc(queryline, d.value.all_faerie_dict[country_uri][state_uri]["cities"],config)
                     if cities_can_add != {}:
                         cities_can["entities"] = dict(cities_can["entities"],
                                               **cities_can_add["entities"])
                 else:
-                    cities_can = faerie.processDoc(queryline, d.value.all_faerie_dict[country_uri][state_uri]["cities"],0.5)
+                    cities_can = faerie.processDoc(queryline, d.value.all_faerie_dict[country_uri][state_uri]["cities"],config)
             else:
                 print "Line 73:" + state_uri
     else:
-        cities_can = faerie.processDoc(queryline,d.value.city_faerie_dict,0.5)
+        cities_can = faerie.processDoc(queryline,d.value.city_faerie_dict,config)
 
     return cities_can
 
