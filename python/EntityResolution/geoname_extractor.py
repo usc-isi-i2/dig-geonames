@@ -3,7 +3,6 @@
 import json
 import faerie
 from pyspark.sql import Row
-import Toolkit
 import time
 
 # Given a path in json, return value if path, full path denoted by . (example address.name) exists, otherwise return ''
