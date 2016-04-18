@@ -2,7 +2,6 @@
 
 import json
 import faerie
-from pyspark.sql import Row
 import time
 
 # Given a path in json, return value if path, full path denoted by . (example address.name) exists, otherwise return ''
@@ -39,13 +38,13 @@ def processDoc(line, d):
                 entity = cities_can["entities"][eid]
                 snc = get_value_json(eid + "$snc", d.value.all_city_dict,'$')
                 if snc != '':
-                    temp = Row(id=eid,value=entity["value"] + ","+snc,candwins=entity["candwins"])
+                    temp = dict(id=eid,value=entity["value"] + ","+snc,candwins=entity["candwins"])
                     jsent.append(temp)
                 else:
-                    temp = Row(id=eid,value=entity["value"] ,candwins=entity["candwins"])
+                    temp = dict(id=eid,value=entity["value"] ,candwins=entity["candwins"])
                     jsent.append(temp)
-            jsdoc = Row(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
-            jsonline = Row(document=jsdoc,entities=jsent, processtime=process_time)
+            jsdoc = dict(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
+            jsonline = dict(document=jsdoc,entities=jsent, processtime=process_time)
             return jsonline
         else:
             "cities_can has no entities:", city + "," + state + "," + country + "," + uri
