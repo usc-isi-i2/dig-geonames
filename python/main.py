@@ -2,6 +2,7 @@ from optparse import OptionParser
 from pyspark import SparkContext
 from dictionaries import D
 from geoname_extractor import processDoc
+from ProbabilisticER import recordLinkage
 
 
 if __name__ == "__main__":

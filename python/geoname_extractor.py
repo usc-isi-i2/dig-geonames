@@ -38,10 +38,12 @@ def processDoc(line, d):
                 entity = cities_can["entities"][eid]
                 snc = get_value_json(eid + "$snc", d.value.all_city_dict,'$')
                 if snc != '':
-                    temp = dict(id=eid,value=entity["value"] + ","+snc,candwins=entity["candwins"])
+                    value_obj = dict(city=entity["value"],state=snc.split(",")[0],country=snc.split(",")[1])
+                    temp = dict(id=eid,value=value_obj,candwins=entity["candwins"])
                     jsent.append(temp)
                 else:
-                    temp = dict(id=eid,value=entity["value"] ,candwins=entity["candwins"])
+                    value_obj = dict(state=entity["value"])
+                    temp = dict(id=eid,value=value_obj ,candwins=entity["candwins"])
                     jsent.append(temp)
             jsdoc = dict(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
             jsonline = dict(document=jsdoc,entities=jsent, processtime=process_time)
