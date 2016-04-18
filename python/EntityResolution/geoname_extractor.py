@@ -37,7 +37,7 @@ def processDoc(line, d):
         if cities_can and 'entities' in cities_can:
             for eid in cities_can["entities"]:
                 entity = cities_can["entities"][eid]
-                snc = Toolkit.get_value_json(eid + "$snc", d.value.all_city_dict,'$')
+                snc = get_value_json(eid + "$snc", d.value.all_city_dict,'$')
                 if snc != '':
                     temp = Row(id=eid,value=entity["value"] + ","+snc,candwins=entity["candwins"])
                     jsent.append(temp)
