@@ -1,6 +1,7 @@
 from optparse import OptionParser
 from pyspark import SparkContext
 from dictionaries import D
+from geoname_extractor import processDoc
 
 
 if __name__ == "__main__":
@@ -20,6 +21,7 @@ if __name__ == "__main__":
     state_faerie = args[7]
     all_faerie = args[8]
     tagging_dict_file = args[9]
+    ERconfig = args[10]
 
     input_rdd = sc.textFile(input_path)
 
@@ -27,4 +29,4 @@ if __name__ == "__main__":
 
     d = sc.broadcast(dictc)
 
-    recordLinkage(EV, input_rdd, output_path, topk, d, False)
+    results = input_rdd.map(lambda x:processDoc(x,d)).map(lambda x:recordLinkage(ERconfig,x,topk,d.priorDicts,d.taggingDicts))
