@@ -20,34 +20,35 @@ def get_value_json(path, doc, separator='.'):
         return doc
 #get the city query line from input and return candidates in spark row format.
 def processDoc(line, d):
-    uri = line["uri"]
-    city = line["locality"]
-    state = line["region"]
-    country = line["country"]
-    start_time = time.clock()
+    if line and 'uri' in line:
+        uri = line["uri"]
+        city = line["locality"]
+        state = line["region"]
+        country = line["country"]
+        start_time = time.clock()
 
-    queryline = {"uri":uri,"name":country}
-    country_can = faerie.processDoc(queryline, d.value.all_faerie_dict["countries_dict"])
+        queryline = {"uri":uri,"name":country}
+        country_can = faerie.processDoc(queryline, d.value.all_faerie_dict["countries_dict"])
 
-    cities_can = search(country_can, uri, state, city, d)
-    process_time = str((time.clock() - start_time)*1000)
-    print "Time take to process: " + json.dumps(line) + " is " + process_time
-    jsent = []
-    if cities_can and 'entities' in cities_can:
-        for eid in cities_can["entities"]:
-            entity = cities_can["entities"][eid]
-            snc = Toolkit.get_value_json(eid + "$snc", d.value.all_city_dict,'$')
-            if snc != '':
-                temp = Row(id=eid,value=entity["value"] + ","+snc,candwins=entity["candwins"])
-                jsent.append(temp)
-            else:
-                temp = Row(id=eid,value=entity["value"] ,candwins=entity["candwins"])
-                jsent.append(temp)
-        jsdoc = Row(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
-        jsonline = Row(document=jsdoc,entities=jsent, processtime=process_time)
-        return jsonline
-    else:
-        "cities_can has no entities:", city + "," + state + "," + country + "," + uri
+        cities_can = search(country_can, uri, state, city, d)
+        process_time = str((time.clock() - start_time)*1000)
+        print "Time take to process: " + json.dumps(line) + " is " + process_time
+        jsent = []
+        if cities_can and 'entities' in cities_can:
+            for eid in cities_can["entities"]:
+                entity = cities_can["entities"][eid]
+                snc = Toolkit.get_value_json(eid + "$snc", d.value.all_city_dict,'$')
+                if snc != '':
+                    temp = Row(id=eid,value=entity["value"] + ","+snc,candwins=entity["candwins"])
+                    jsent.append(temp)
+                else:
+                    temp = Row(id=eid,value=entity["value"] ,candwins=entity["candwins"])
+                    jsent.append(temp)
+            jsdoc = Row(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
+            jsonline = Row(document=jsdoc,entities=jsent, processtime=process_time)
+            return jsonline
+        else:
+            "cities_can has no entities:", city + "," + state + "," + country + "," + uri
 
     return ''
 
