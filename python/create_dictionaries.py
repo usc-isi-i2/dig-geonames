@@ -27,11 +27,7 @@ def createGeonamesPriorDict(all_city_dict):
         effective_population = population + (int(1e7) if val['snc'].split(',')[1].lower() == 'united states' else 0)
         prior = (1.0 - 1.0/math.log(effective_population + 2000))
         pdict.update({uri: prior})
-    return pdict
-
-
-def create_prior_dict(path):
-    return json.dumps(createGeonamesPriorDict(path))
+    return json.dumps(pdict)
 
 
 def createDict1(path):
@@ -156,7 +152,7 @@ if __name__ == "__main__":
     all_city_dict.write(json.dumps(f4))
 
     prior_dict = codecs.open(output_path + "/prior_dict.json", 'w')
-    prior = create_prior_dict(f4)
+    prior = createGeonamesPriorDict(f4)
     prior_dict.write(prior)
 
     tagging_dict = codecs.open(output_path + "/tagging_dict.json", 'w')
