@@ -97,29 +97,44 @@ def createDict2(all_dict, state_dict, city_dict):
     return wholecities_dicts,wholestates_dicts, dicts
 
 
-def create_tagging_dict(json_file):
-  states = set()
-  countries = set()
-  cities = set()
+def create_tagging_dict(refPath):
+    states = set()
+    countries = set()
+    citites = set()
 
-  for key in json_file["city"]:
-    city = key.lower()
-    cities.add(city)
-    if len(city) >= 5:
-      cities |= tagging.edits1(city)
-  for key in json_file["state"]:
-    state = key.lower()
-    states.add(state)
-    if len(state) >= 5:
-      states |= tagging.edits1(state)
-  for key in json_file["country"]:
-    country = key.lower()
-    countries.add(country)
-    if len(country) >= 5:
-      countries |= tagging.edits1(country)
-  return {'city': {x:0 for x in cities},
-          'state': {x:0 for x in states},
-          'country': {x:0 for x in countries}}
+    for line in open(refPath):
+        jsonobj = json.loads(line)
+
+        state = get_value_json('address.addressRegion.name', jsonobj).lower()
+        if state != '':
+            states.add(state)
+            if len(states) >= 5:
+                states |= tagging.edits1(states)
+
+        country = get_value_json('address.addressCountry.name', jsonobj).lower()
+        if country != '':
+            print country
+            countries.add(country)
+            if len(country) >= 5:
+                countries |= tagging.edits1(country)
+
+        if jsonobj['a'] == 'City':
+            names=[]
+            if 'name' in jsonobj:
+                names_d = jsonobj['name']
+                if isinstance(names_d, list):
+                    names = names_d
+                elif isinstance(names_d, str):
+                    names.append(names_d)
+
+                for name in names:
+                    citites.add(name.lower())
+                    if len(name) >= 5:
+                        citites |= tagging.edits1(name)
+    print countries
+    return {'city': {x:0 for x in citites},
+            'state': {x:0 for x in states},
+            'country': {x:0 for x in countries}}
 
 
 if __name__ == "__main__":
@@ -156,4 +171,4 @@ if __name__ == "__main__":
     prior_dict.write(prior)
 
     tagging_dict = codecs.open(output_path + "/tagging_dict.json", 'w')
-    tagging_dict.write(json.dumps(create_tagging_dict(json.loads(prior))))
+    tagging_dict.write(json.dumps(create_tagging_dict(input_path)))
