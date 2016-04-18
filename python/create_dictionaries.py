@@ -109,7 +109,7 @@ def create_tagging_dict(refPath):
         if state != '':
             states.add(state)
             if len(states) >= 5:
-                states |= tagging.edits1(states)
+                states |= tagging.edits1(state)
 
         country = get_value_json('address.addressCountry.name', jsonobj).lower()
         if country != '':
