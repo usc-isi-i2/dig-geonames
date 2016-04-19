@@ -45,10 +45,10 @@ def processDoc(line, d):
                     value_obj = dict(state=entity["value"])
                     temp = dict(id=eid,value=value_obj ,candwins=entity["candwins"])
                     jsent.append(temp)
-            jsdoc = dict(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
+            jsdoc = dict(id=uri,value=value + ","+state+","+country)
             jsonline = dict(document=jsdoc,entities=jsent, processtime=process_time)
         else:
-            jsdoc = dict(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
+            jsdoc = dict(id=uri,value=city + ","+state+","+country)
             jsonline = dict(document=jsdoc,entities=[], processtime=process_time)
 
         return jsonline
