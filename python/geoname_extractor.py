@@ -58,10 +58,13 @@ def search(country_can, uri, state, city, d):
     states_can = {}
     cities_can = {}
     if country_can and country_can != {} and country_can["entities"] != {}:
+        print country_can
         for country_uri in country_can["entities"]:
             if state != "":
                 queryline = {"uri":uri,"name":state}
                 temp = faerie.processDoc(queryline, d.value.all_faerie_dict[country_uri]["states_dict"])
+                print states_can
+                print temp
                 if 'entities' in states_can:
                     states_can["entities"] = dict(states_can["entities"],
                                           **temp["entities"])
