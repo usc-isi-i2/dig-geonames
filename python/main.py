@@ -2,8 +2,18 @@ from optparse import OptionParser
 from pyspark import SparkContext
 from dictionaries import D
 from geoname_extractor import processDoc
-from ProbabilisticER import recordLinkage
+import ProbabilisticER
 import json
+import codecs
+
+"""
+RUN AS:
+spark-submit --master local[*]    --executor-memory=8g     --driver-memory=8g \
+--py-files lib/python-lib.zip main.py  /tmp/geonames/input/input.jl /tmp/geonames/geo-out \
+/tmp/geonames/output/prior_dict.json 3 /tmp/geonames/output/state_dict.json /tmp/geonames/output/all_city_dict.json \
+/tmp/geonames/output/city_faerie.json /tmp/geonames/output/state_faerie.json /tmp/geonames/output/all_dict_faerie.json \
+ /tmp/geonames/output/tagging_dict.json /tmp/geonames/output/config.json
+"""
 
 # Given a path in json, return value if path, full path denoted by a separator,like '$'or '.',
 #  (example address.name) exists, otherwise return ''
@@ -37,7 +47,7 @@ def create_input_geonames(line):
         json_l = json_x
 
     for x in json_l:
-        print x
+        # print x
         out['country'] = get_value_json('featureObject.addressCountry.label', x)
         out['region'] = get_value_json('featureObject.addressRegion', x)
         out['locality'] = get_value_json('featureObject.addressLocality', x)
@@ -70,10 +80,19 @@ if __name__ == "__main__":
 
     d = sc.broadcast(dictc)
 
-    input_address = sc.sequenceFile(input_path)
+    EV = ProbabilisticER.initializeRecordLinkage(json.load(codecs.open(ERconfig)))
 
-    input_rdd = input_address.mapValues(create_input_geonames)
+    print EV
 
-    results = input_rdd.map(lambda x:processDoc(x, d)).map(lambda x: recordLinkage(ERconfig, x, topk,
-                                                                                   d.value.priorDicts,
-                                                                                   d.value.taggingDicts))
+    EV_b = sc.broadcast(EV)
+    print EV_b.value
+    # input_address = sc.sequenceFile(input_path)
+    input_address = sc.textFile(input_path)
+    # print input_address.first()
+    # input_rdd = input_address.mapValues(create_input_geonames)
+    input_rdd = input_address.map(create_input_geonames)
+    print json.dumps(input_rdd.first())
+    results = input_rdd.map(lambda x:processDoc(x, d)).map(lambda x: ProbabilisticER.scoreCandidates(EV_b.value, x, d.value.priorDicts,
+                                                                                     d.value.taggingDicts, topk, 'raw'))
+
+    results.saveAsTextFile(output_path)
