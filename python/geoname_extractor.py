@@ -19,6 +19,7 @@ def get_value_json(path, doc, separator='.'):
         return doc
 #get the city query line from input and return candidates in spark row format.
 def processDoc(line, d):
+    jsonline = dict()
     if line and 'uri' in line:
         uri = line["uri"]
         city = line["locality"]
@@ -47,11 +48,11 @@ def processDoc(line, d):
                     jsent.append(temp)
             jsdoc = dict(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
             jsonline = dict(document=jsdoc,entities=jsent, processtime=process_time)
-            return jsonline
         else:
-            "cities_can has no entities:", city + "," + state + "," + country + "," + uri
+            jsdoc = dict(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
+            jsonline = dict(document=jsdoc,entities=[], processtime=process_time)
 
-    return ''
+    return jsonline
 
 #search the states based on the country candidates then search the city candidates based on the states candidates.
 def search(country_can, uri, state, city, d):
