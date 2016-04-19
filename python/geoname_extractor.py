@@ -86,7 +86,9 @@ def search(country_can, uri, state, city, d):
     if cities_can:
         return cities_can
     else:
-        return states_can
+        if type(states_can["entities"]) == dict:
+            return states_can
+
 
 #search the city candidates.
 def searchcity(states_can, uri, city, d):
