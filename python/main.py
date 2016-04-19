@@ -34,23 +34,24 @@ def get_value_json(path, doc, separator='.'):
 def create_input_geonames(line):
     out = {}
     line = json.loads(line)
-    out['uri'] = line['uri']
 
     fo = get_value_json('hasFeatureCollection.place_postalAddress_feature', line)
 
-    json_x = json.loads(fo)
+    if fo != '':
+        json_x = json.loads(fo)
 
-    json_l = []
-    if isinstance(json_x, dict):
-        json_l.append(json_x)
-    elif isinstance(json_x, list):
-        json_l = json_x
+        json_l = []
+        if isinstance(json_x, dict):
+            json_l.append(json_x)
+        elif isinstance(json_x, list):
+            json_l = json_x
 
-    for x in json_l:
-        # print x
-        out['country'] = get_value_json('featureObject.addressCountry.label', x)
-        out['region'] = get_value_json('featureObject.addressRegion', x)
-        out['locality'] = get_value_json('featureObject.addressLocality', x)
+        for x in json_l:
+            # print x
+            out['country'] = get_value_json('featureObject.addressCountry.label', x)
+            out['region'] = get_value_json('featureObject.addressRegion', x)
+            out['locality'] = get_value_json('featureObject.addressLocality', x)
+            out['uri'] = line['uri']
 
     return out
 
