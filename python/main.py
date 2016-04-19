@@ -65,7 +65,7 @@ if __name__ == "__main__":
     input_path = args[0]
     output_path = args[1]
     prior_dict_file = args[2]
-    topk = args[3]
+    topk = int(args[3])
     state_dict_path = args[4]
     all_city_path = args[5]
     city_faerie = args[6]
