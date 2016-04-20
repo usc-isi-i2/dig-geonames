@@ -113,7 +113,6 @@ def create_tagging_dict(refPath):
 
         country = get_value_json('address.addressCountry.name', jsonobj).lower()
         if country != '':
-            print country
             countries.add(country)
             if len(country) >= 5:
                 countries |= tagging.edits1(country)
@@ -124,14 +123,14 @@ def create_tagging_dict(refPath):
                 names_d = jsonobj['name']
                 if isinstance(names_d, list):
                     names = names_d
-                elif isinstance(names_d, str):
+                else:
                     names.append(names_d)
 
                 for name in names:
                     citites.add(name.lower())
                     if len(name) >= 5:
                         citites |= tagging.edits1(name)
-    print countries
+    # print citites
     return {'city': {x:0 for x in citites},
             'state': {x:0 for x in states},
             'country': {x:0 for x in countries}}
