@@ -92,8 +92,7 @@ if __name__ == "__main__":
     # print input_address.first()
     # input_rdd = input_address.mapValues(create_input_geonames)
     input_rdd = input_address.map(create_input_geonames)
-    print json.dumps(input_rdd.first())
     results = input_rdd.map(lambda x:processDoc(x, d)).map(lambda x: ProbabilisticER.scoreCandidates(EV_b.value, x, d.value.priorDicts,
                                                                                      d.value.taggingDicts, topk, 'raw'))
 
-    results.saveAsTextFile(output_path)
+    results.map(lambda x: json.dumps(x)).saveAsTextFile(output_path)

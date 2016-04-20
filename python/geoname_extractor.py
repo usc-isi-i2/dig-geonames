@@ -25,13 +25,11 @@ def processDoc(line, d):
         state = line["region"]
         country = line["country"]
         start_time = time.clock()
-
         queryline = {"uri":uri,"name":country}
         country_can = faerie.processDoc(queryline, d.value.all_faerie_dict["countries_dict"])
 
         cities_can = search(country_can, uri, state, city, d)
         process_time = str((time.clock() - start_time)*1000)
-        print "Time take to process: " + json.dumps(line) + " is " + process_time
         jsent = []
         if cities_can and 'entities' in cities_can:
             for eid in cities_can["entities"]:
