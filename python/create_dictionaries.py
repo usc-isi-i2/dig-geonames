@@ -2,7 +2,6 @@ import codecs
 import json
 from optparse import OptionParser
 import faerie
-import tagging
 import math
 
 
@@ -108,14 +107,10 @@ def create_tagging_dict(refPath):
         state = get_value_json('address.addressRegion.name', jsonobj).lower()
         if state != '':
             states.add(state)
-            if len(states) >= 5:
-                states |= tagging.edits1(state)
 
         country = get_value_json('address.addressCountry.name', jsonobj).lower()
         if country != '':
             countries.add(country)
-            if len(country) >= 5:
-                countries |= tagging.edits1(country)
 
         if jsonobj['a'] == 'City':
             names=[]
@@ -128,8 +123,6 @@ def create_tagging_dict(refPath):
 
                 for name in names:
                     citites.add(name.lower())
-                    if len(name) >= 5:
-                        citites |= tagging.edits1(name)
     # print citites
     return {'city': {x:0 for x in citites},
             'state': {x:0 for x in states},
