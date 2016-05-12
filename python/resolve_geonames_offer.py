@@ -134,8 +134,16 @@ def merge_offers_with_geonames(x):
                     address = create_address_object(geo)
                     offer_address = get_value_json('availableAtOrFrom.address', offer)
                     if offer_address != '':
-                        # del offer['availableAtOrFrom']['address']
                         offer['availableAtOrFrom']['address'].append(address)
+
+                        addresses = list()
+
+                        for a in offer['availableAtOrFrom']['address']:
+                            if 'createdBy' in a:
+                                addresses.append(a)
+
+                        offer['availableAtOrFrom']['address'] = addresses
+
                     else:
                         a_list = list()
                         a_list.append(address)
