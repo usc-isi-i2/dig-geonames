@@ -39,7 +39,14 @@ def createDict1(path):
         line = json.loads(line)
         if 'name' in line:
             city = line["name"]
-            population = line['populationOfArea']
+            population = '0'
+            if 'populationOfArea' in line:
+                population = line['populationOfArea']
+            longitude = ''
+            latitude = ''
+            if 'geo' in line:
+                longitude = line['geo']['longitude']
+                latitude = line['geo']['latitude']
 
             city_uri = line["uri"]
             try:
@@ -47,36 +54,40 @@ def createDict1(path):
                 state_uri = line["address"]["addressRegion"]["sameAs"]
                 country = line["address"]["addressCountry"]["name"]
                 country_uri = line["address"]["addressCountry"]["sameAs"]
-                wholestates_dicts[state_uri] = {}
-                wholestates_dicts[state_uri]["name"] = state
-                wholestates_dicts[state_uri]["country_uri"] = country_uri
-                try:
-                    stateDict = dicts[country_uri]["states"]
+                if state != '' and country != '':
+                    wholestates_dicts[state_uri] = {}
+                    wholestates_dicts[state_uri]["name"] = state
+                    wholestates_dicts[state_uri]["country_uri"] = country_uri
                     try:
-                        stateDict[state_uri]["cities"][city_uri] = {}
-                        stateDict[state_uri]["cities"][city_uri]["name"] = city
-                        stateDict[state_uri]["cities"][city_uri]["snc"] = state + "," + country
+                        stateDict = dicts[country_uri]["states"]
+                        try:
+                            stateDict[state_uri]["cities"][city_uri] = {}
+                            stateDict[state_uri]["cities"][city_uri]["name"] = city
+                            stateDict[state_uri]["cities"][city_uri]["snc"] = state + "," + country
+                        except KeyError:
+                            stateDict[state_uri] = {"cities": {city_uri: {"name": city, "snc": state + "," + country}},
+                                                        "name": state}
                     except KeyError:
-                        stateDict[state_uri] = {"cities": {city_uri: {"name": city, "snc": state + "," + country}},
-                                                    "name": state}
-                except KeyError:
-                    dicts[country_uri] = {"states": {
-                            state_uri: {"name": state, "cities": {city_uri: {"name": city, "snc": state + "," + country}}}},
-                                              "name": country}
+                        dicts[country_uri] = {"states": {
+                                state_uri: {"name": state, "cities": {city_uri: {"name": city, "snc": state + "," + country}}}},
+                                                  "name": country}
             except:
                 state = ""
                 country = ""
 
-
-            if int(population) >= 25000:
-                wholecities_dicts[city_uri] = {}
-                wholecities_dicts[city_uri]["name"] = city
-                wholecities_dicts[city_uri]["snc"] = state + "," + country
-                wholecities_dicts[city_uri]['populationOfArea'] = population
-            all_cities_dict[city_uri] = {}
-            all_cities_dict[city_uri]['name'] = city
-            all_cities_dict[city_uri]['snc'] = state + "," + country
-            all_cities_dict[city_uri]['populationOfArea'] = population
+            if state != '' and country != '':
+                if int(population) >= 25000:
+                    wholecities_dicts[city_uri] = {}
+                    wholecities_dicts[city_uri]["name"] = city
+                    wholecities_dicts[city_uri]["snc"] = state + "," + country
+                    wholecities_dicts[city_uri]['populationOfArea'] = population
+                all_cities_dict[city_uri] = {}
+                all_cities_dict[city_uri]['name'] = city
+                all_cities_dict[city_uri]['snc'] = state + "," + country
+                all_cities_dict[city_uri]['populationOfArea'] = population
+                if longitude!= '' and latitude != '':
+                    all_cities_dict[city_uri]['longitude'] = longitude
+                    all_cities_dict[city_uri]['latitude'] = latitude
 
     return wholecities_dicts, wholestates_dicts, dicts, all_cities_dict
 
@@ -140,6 +151,7 @@ if __name__ == "__main__":
     input_path = args[0]
     output_path = args[1]
     f1, f2, f3, f4 = createDict1(input_path)
+
 
     state_dict = codecs.open(output_path + "/state_dict.json", 'w')
     state_dict.write(json.dumps(f2))
