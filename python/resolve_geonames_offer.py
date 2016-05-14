@@ -111,18 +111,46 @@ def create_input_geonames(line):
         result.append(out)
     return result
 
-def create_address_object(geo):
-    address = {}
-    top_match = geo['matches'][0]
-    address['addressLocality'] = top_match['value']['city']
-    address['addressRegion'] = top_match['value']['state']
-    address['addressCountry'] = top_match['value']['country']
-    address['uri'] = geo['uri'] + "/address"
-    address['createdBy'] = 'dig-geonames'
+
+# def create_address_object(geo):
+#     print geo
+#     address = {}
+#
+#     top_match = geo['matches'][0]
+#     address['addressLocality'] = top_match['value']['city']
+#     address['addressRegion'] = top_match['value']['state']
+#     address['addressCountry'] = top_match['value']['country']
+#     address['uri'] = geo['uri'] + "/address"
+#     address['createdBy'] = 'dig-geonames'
+#     return address
+
+def create_address_object(geo, d):
+    try:
+        address = {}
+
+        top_match = geo['matches'][0]
+        address['addressLocality'] = top_match['value']['city']
+        address['addressRegion'] = top_match['value']['state']
+        address['addressCountry'] = top_match['value']['country']
+        address['uri'] = geo['uri'] + "/address"
+        address['createdBy'] = 'dig-geonames'
+
+        city_dict = d.value.all_city_dict
+        geo_uri = top_match['uri']
+        geoname_city = city_dict[geo_uri]
+        if 'longitude' in geoname_city and 'latitude' in geoname_city:
+            address['geo'] = dict()
+            address['geo']['lon'] = geoname_city['longitude']
+            address['geo']['lat'] = geoname_city['latitude']
+        else:
+            print geo_uri
+    except Exception, e:
+        print e
+
     return address
 
 
-def merge_offers_with_geonames(x):
+def merge_offers_with_geonames(x, d):
     try:
         offer = x[0]
         geo = x[1]
@@ -131,7 +159,7 @@ def merge_offers_with_geonames(x):
                 # get score of the top match
                 score = float(geo['matches'][0]['score'])
                 if score >= 0.4502:
-                    address = create_address_object(geo)
+                    address = create_address_object(geo, d)
                     offer_address = get_value_json('availableAtOrFrom.address', offer)
                     if offer_address != '':
                         offer['availableAtOrFrom']['address'].append(address)
@@ -174,12 +202,12 @@ if __name__ == "__main__":
     ERconfig = args[10]
 
     # input_rdd = sc.textFile(input_path)
-    input_address = sc.sequenceFile(input_path)
+    # input_address = sc.sequenceFile(input_path)
     input_address = sc.sequenceFile(input_path).mapValues(lambda x: json.loads(x))
 
-    # dictc = D(sc, state_dict_path, all_city_path, city_faerie, state_faerie, all_faerie, prior_dict_file,tagging_dict_file)
+    dictc = D(sc, state_dict_path, all_city_path, city_faerie, state_faerie, all_faerie, prior_dict_file,tagging_dict_file)
     #
-    # d = sc.broadcast(dictc)
+    d = sc.broadcast(dictc)
     #
     # EV = ProbabilisticER.initializeRecordLinkage(json.load(codecs.open(ERconfig)))
     #
@@ -190,5 +218,7 @@ if __name__ == "__main__":
     # resolved_geonames.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path)
     resolved_geonames = sc.sequenceFile(output_path).mapValues(lambda x: json.loads(x))
 
-    results = input_address.join(resolved_geonames).mapValues(lambda x: merge_offers_with_geonames(x))
+
+    results = input_address.join(resolved_geonames).mapValues(lambda x: merge_offers_with_geonames(x, d))
+    # results = input_address.join(resolved_geonames).mapValues(lambda x: merge_offers_with_geonames(x))
     results.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path + "-resolved")
