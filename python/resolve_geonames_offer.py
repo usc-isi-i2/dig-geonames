@@ -70,12 +70,10 @@ def get_state_from_city(x):
 def create_input_geonames(line):
     result = []
 
-    line = json.loads(line)
+    # line = json.loads(line)
 
-    fo = get_value_json('availableAtOrFrom.address', line)
-
-    if fo != '':
-        json_x = json.loads(fo)
+    if line:
+        json_x = line
 
         json_l = []
         if isinstance(json_x, dict):
@@ -112,43 +110,92 @@ def create_input_geonames(line):
     return result
 
 
-# def create_address_object(geo):
-#     print geo
-#     address = {}
-#
-#     top_match = geo['matches'][0]
-#     address['addressLocality'] = top_match['value']['city']
-#     address['addressRegion'] = top_match['value']['state']
-#     address['addressCountry'] = top_match['value']['country']
-#     address['uri'] = geo['uri'] + "/address"
-#     address['createdBy'] = 'dig-geonames'
-#     return address
+def getAddressName(x):
+    name = ''
+    city = get_value_json('addressLocality', x)
+    state = get_value_json('addressRegion', x)
+    country = get_value_json('addressCountry', x)
 
-def create_address_object(geo, d):
+    if city != '':
+        name += city + ','
+
+    if state != '':
+        name += state + ','
+
+    if country != '':
+        name += country
+    if name != '':
+        if name[len(name)-1] == ',':
+            name = name[:len(name)-1]
+    return name
+
+
+def create_address_object(geo, x, d):
     try:
+        extractor_output = getAddressName(x)
         address = {}
-
+        key = ''
         top_match = geo['matches'][0]
         address['addressLocality'] = top_match['value']['city']
         address['addressRegion'] = top_match['value']['state']
         address['addressCountry'] = top_match['value']['country']
-        address['uri'] = geo['uri'] + "/address"
+        address['uri'] = geo['uri']
         address['createdBy'] = 'dig-geonames'
-
+        address['a'] = "http://schema.org/PostalAddress"
+        address['@context'] = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/karma/karma-context.json"
+        key += address['addressLocality'] + ":" + address['addressRegion'] + ":" + address['addressCountry']
         city_dict = d.value.all_city_dict
         geo_uri = top_match['uri']
+        address['extractorOutput'] = extractor_output
         geoname_city = city_dict[geo_uri]
         if 'longitude' in geoname_city and 'latitude' in geoname_city:
             address['geo'] = dict()
-            address['geo']['lon'] = geoname_city['longitude']
-            address['geo']['lat'] = geoname_city['latitude']
+            address['geo']['longitude'] = geoname_city['longitude']
+            address['geo']['latitude'] = geoname_city['latitude']
+            address['geo']['a'] = 'http://schema.org/GeoCoordinates'
+            key += ":" + geoname_city['longitude'] + ":" + geoname_city['latitude']
         else:
             print geo_uri
+
+        address['key'] = key
+
     except Exception, e:
         print e
 
     return address
 
+
+def create_pa_with_name(x):
+    out = dict()
+    name = getAddressName(x)
+    if name != '':
+        out['name'] = getAddressName(x)
+        out['uri'] = x['uri']
+        out['a'] = "http://schema.org/PostalAddress"
+        out['@context'] = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/karma/karma-context.json"
+        return out
+    else:
+        return None
+
+def merge_postal_addresses(x, d):
+    old = x[0]
+    new = x[1]
+
+    if old:
+        if new:
+            if len(new['matches']) >= 1:
+                score = float(new['matches'][0]['score'])
+                if score >= 0.4502:
+                    address = create_address_object(new, old, d)
+                    old = address
+                else:
+                    old = create_pa_with_name(old)
+            else:
+                old = create_pa_with_name(old)
+        else:
+            old = create_pa_with_name(old)
+
+    return old
 
 def merge_offers_with_geonames(x, d):
     try:
@@ -182,6 +229,13 @@ def merge_offers_with_geonames(x, d):
 
     return offer
 
+def filter_broken_addresses(x):
+    if x:
+        if get_value_json('addressLocality', x) != '' or get_value_json('name', x) != '':
+            return True
+
+    return False
+
 if __name__ == "__main__":
     sc = SparkContext(appName="DIG-EntityResolution")
 
@@ -201,10 +255,10 @@ if __name__ == "__main__":
     tagging_dict_file = args[9]
     ERconfig = args[10]
 
-    # input_rdd = sc.textFile(input_path)
-    # input_address = sc.sequenceFile(input_path)
-    input_address = sc.sequenceFile(input_path).mapValues(lambda x: json.loads(x))
-
+    input_reduced = sc.sequenceFile(input_path).mapValues(lambda x: json.loads(x))
+    #
+    input_address = input_reduced.filter(lambda x: x[1]['a'] == 'http://schema.org/PostalAddress')
+    # print input_address.first()
     dictc = D(sc, state_dict_path, all_city_path, city_faerie, state_faerie, all_faerie, prior_dict_file,tagging_dict_file)
     #
     d = sc.broadcast(dictc)
@@ -212,13 +266,15 @@ if __name__ == "__main__":
     # EV = ProbabilisticER.initializeRecordLinkage(json.load(codecs.open(ERconfig)))
     #
     # EV_b = sc.broadcast(EV)
+    #
     # input_rdd = input_address.flatMapValues(create_input_geonames)
+    # print input_rdd.first()
     # resolved_geonames = input_rdd.mapValues(lambda x:processDoc(x, d)).mapValues(lambda x: ProbabilisticER.scoreCandidates(EV_b.value, x, d.value.priorDicts,
     #                                                                                  d.value.taggingDicts, topk, 'raw'))
+    #
     # resolved_geonames.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path)
     resolved_geonames = sc.sequenceFile(output_path).mapValues(lambda x: json.loads(x))
-
-
-    results = input_address.join(resolved_geonames).mapValues(lambda x: merge_offers_with_geonames(x, d))
-    # results = input_address.join(resolved_geonames).mapValues(lambda x: merge_offers_with_geonames(x))
-    results.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path + "-resolved")
+    results = input_address.join(resolved_geonames).mapValues(lambda x: merge_postal_addresses(x, d))
+    results_filtered = results.filter(lambda x: filter_broken_addresses(x[1]))
+    print results_filtered.first()
+    results_filtered.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path + "-resolved")
