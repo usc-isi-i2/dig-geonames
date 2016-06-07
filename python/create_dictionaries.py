@@ -49,41 +49,47 @@ def createDict1(path):
                 latitude = line['geo']['latitude']
 
             city_uri = line["uri"]
-            try:
+            country = line["address"]["addressCountry"]["name"]
+            if type(country) != list:
+                    country = [country]
+            country_uri = line["address"]["addressCountry"]["sameAs"]
+            if "addressRegion" in line["address"] and "name" in line["address"]["addressRegion"] and "sameAs" in line["address"]["addressRegion"]:
                 state = line["address"]["addressRegion"]["name"]
+                if type(state) != list:
+                    state = [state]
                 state_uri = line["address"]["addressRegion"]["sameAs"]
-                country = line["address"]["addressCountry"]["name"]
-                country_uri = line["address"]["addressCountry"]["sameAs"]
-                if state != '' and country != '':
-                    wholestates_dicts[state_uri] = {}
-                    wholestates_dicts[state_uri]["name"] = state
-                    wholestates_dicts[state_uri]["country_uri"] = country_uri
-                    try:
-                        stateDict = dicts[country_uri]["states"]
-                        try:
-                            stateDict[state_uri]["cities"][city_uri] = {}
-                            stateDict[state_uri]["cities"][city_uri]["name"] = city
-                            stateDict[state_uri]["cities"][city_uri]["snc"] = state + "," + country
-                        except KeyError:
-                            stateDict[state_uri] = {"cities": {city_uri: {"name": city, "snc": state + "," + country}},
-                                                        "name": state}
-                    except KeyError:
-                        dicts[country_uri] = {"states": {
-                                state_uri: {"name": state, "cities": {city_uri: {"name": city, "snc": state + "," + country}}}},
-                                                  "name": country}
-            except:
-                state = ""
-                country = ""
+                wholestates_dicts[state_uri] = {}
+                wholestates_dicts[state_uri]["name"] = state
+                wholestates_dicts[state_uri]["country_uri"] = country_uri
+            else:
+                state = []
+                state_uri = "N/A"
+            try:
+                stateDict = dicts[country_uri]["states"]
+                try:
+                    stateDict[state_uri]["cities"][city_uri] = {}
+                    stateDict[state_uri]["cities"][city_uri]["name"] = city
+                    stateDict[state_uri]["cities"][city_uri]["state"] = state
+                    stateDict[state_uri]["cities"][city_uri]["country"] = country
+                except KeyError:
+                    stateDict[state_uri] = {"cities": {city_uri: {"name": city, "state": state, "country": country}},
+                                                "name": state}
+            except KeyError:
+                dicts[country_uri] = {"states": {
+                        state_uri: {"name": state, "cities": {city_uri: {"name": city, "state": state, "country": country}}}},
+                                            "name": country}
 
             if state != '' and country != '':
                 if int(population) >= 25000:
                     wholecities_dicts[city_uri] = {}
                     wholecities_dicts[city_uri]["name"] = city
-                    wholecities_dicts[city_uri]["snc"] = state + "," + country
+                    wholecities_dicts[city_uri]["state"] = state
+                    wholecities_dicts[city_uri]["country"] = country
                     wholecities_dicts[city_uri]['populationOfArea'] = population
                 all_cities_dict[city_uri] = {}
                 all_cities_dict[city_uri]['name'] = city
-                all_cities_dict[city_uri]['snc'] = state + "," + country
+                all_cities_dict[city_uri]['state'] = state
+                all_cities_dict[city_uri]['country'] = country
                 all_cities_dict[city_uri]['populationOfArea'] = population
                 if longitude!= '' and latitude != '':
                     all_cities_dict[city_uri]['longitude'] = longitude

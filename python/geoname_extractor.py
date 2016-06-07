@@ -30,19 +30,19 @@ def processDoc(line, d):
 
         cities_can = search(country_can, uri, state, city, d)
         process_time = str((time.clock() - start_time)*1000)
-        jsent = []
         if cities_can and 'entities' in cities_can:
-            for eid in cities_can["entities"]:
-                entity = cities_can["entities"][eid]
-                snc = get_value_json(eid + "$snc", d.value.all_city_dict,'$')
-                if snc != '':
-                    value_obj = dict(city=entity["value"],state=snc.split(",")[0],country=snc.split(",")[1])
-                    temp = dict(id=eid,value=value_obj,candwins=entity["candwins"])
-                    jsent.append(temp)
-                else:
-                    value_obj = dict(state=entity["value"])
-                    temp = dict(id=eid,value=value_obj ,candwins=entity["candwins"])
-                    jsent.append(temp)
+            jsent = cities_can["entities"]
+            # for eid in cities_can["entities"]:
+            #     entity = cities_can["entities"][eid]
+            #     snc = get_value_json(eid + "$snc", d.value.all_city_dict,'$')
+            #     if snc != '':
+            #         value_obj = dict(city=entity["value"],state=snc.split(",")[0],country=snc.split(",")[1])
+            #         temp = dict(id=eid,value=value_obj,candwins=entity["candwins"])
+            #         jsent.append(temp)
+            #     else:
+            #         value_obj = dict(state=entity["value"])
+            #         temp = dict(id=eid,value=value_obj ,candwins=entity["candwins"])
+            #         jsent.append(temp)
             jsdoc = dict(id=uri,value=city + ","+state+","+country)
             jsonline = dict(document=jsdoc,entities=jsent, processtime=process_time)
         else:
