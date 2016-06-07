@@ -23,7 +23,7 @@ def createGeonamesPriorDict(all_city_dict):
     pdict = {}
     for uri, val in all_city_dict.items():
         population = int(val['populationOfArea'])
-        effective_population = population + (int(1e7) if val['snc'].split(',')[1].lower() == 'united states' else 0)
+        effective_population = population + (int(1e7) if val['country'][0].lower() == 'united states' else 0)
         prior = (1.0 - 1.0/math.log(effective_population + 2000))
         pdict.update({uri: prior})
     return json.dumps(pdict)
