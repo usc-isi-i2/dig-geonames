@@ -1,5 +1,5 @@
 from optparse import OptionParser
-from pyspark import SparkContext
+from pyspark import SparkContext, StorageLevel
 from dictionaries import D
 from geoname_extractor import processDoc
 import ProbabilisticER
@@ -103,8 +103,8 @@ def create_input_geonames(line):
 
             if out['country'].strip() == '' and out['region'].strip() == '' and out['locality'].strip() == '':
                 print line['uri']
-            else:
-                out['uri'] = line['uri']
+
+            out['uri'] = line['uri']
 
         result.append(out)
     return result
@@ -131,18 +131,19 @@ def getAddressName(x):
 
 
 def create_address_object(geo, x, d):
+    address = {}
     try:
         extractor_output = getAddressName(x)
-        address = {}
         key = ''
         top_match = geo['matches'][0]
         address['addressLocality'] = top_match['value']['city']
         address['addressRegion'] = top_match['value']['state']
         address['addressCountry'] = top_match['value']['country']
-        address['uri'] = geo['uri']
+        address['uri'] = x['uri']
         address['createdBy'] = 'dig-geonames'
         address['a'] = "http://schema.org/PostalAddress"
-        address['@context'] = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/karma/karma-context.json"
+        address['@context'] = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/" \
+                              "development/versions/3.0/karma/karma-context.json"
         key += address['addressLocality'] + ":" + address['addressRegion'] + ":" + address['addressCountry']
         city_dict = d.value.all_city_dict
         geo_uri = top_match['uri']
@@ -167,15 +168,14 @@ def create_address_object(geo, x, d):
 
 def create_pa_with_name(x):
     out = dict()
-    name = getAddressName(x)
-    if name != '':
-        out['name'] = getAddressName(x)
-        out['uri'] = x['uri']
-        out['a'] = "http://schema.org/PostalAddress"
-        out['@context'] = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/versions/3.0/karma/karma-context.json"
-        return out
-    else:
-        return None
+    out['name'] = getAddressName(x)
+    out['uri'] = x['uri']
+    out['a'] = "http://schema.org/PostalAddress"
+    out['@context'] = "https://raw.githubusercontent.com/usc-isi-i2/dig-alignment/development/" \
+                      "versions/3.0/karma/karma-context.json"
+    return out
+
+
 
 def merge_postal_addresses(x, d):
     old = x[0]
@@ -196,6 +196,7 @@ def merge_postal_addresses(x, d):
             old = create_pa_with_name(old)
 
     return old
+
 
 def merge_offers_with_geonames(x, d):
     try:
@@ -229,6 +230,7 @@ def merge_offers_with_geonames(x, d):
 
     return offer
 
+
 def filter_broken_addresses(x):
     if x:
         if get_value_json('addressLocality', x) != '' or get_value_json('name', x) != '':
@@ -236,12 +238,36 @@ def filter_broken_addresses(x):
 
     return False
 
+
+def reformatDocs(jobj, all_city_dict):
+    # print(jobj)
+    candidates = []
+    for uri in jobj['entities'].keys():
+        geoname = all_city_dict[uri]
+        city = geoname['name']
+        state = geoname['state']
+        country = geoname['country']
+        candidates.append({'id': uri,
+                           'value': {'city': city if type(city) is list else [city],
+                                     'state': state if type(state) is list else [state],
+                                     'country': country if type(country) is list else [country]}})
+    return {'document': jobj['document'], 'entities': candidates, 'processtime': jobj['processtime']}
+
+
 if __name__ == "__main__":
     sc = SparkContext(appName="DIG-EntityResolution")
 
     parser = OptionParser()
 
+    parser.add_option("-r", "--rungeonames", dest="rungeonames", default=False,
+                      action="store_true")
+    parser.add_option("-l", "--loadgeonames", dest="loadgeonames", default=False,
+                      action="store_true")
+
     (c_options, args) = parser.parse_args()
+
+    rungeonames = c_options.rungeonames
+    loadgeonames = c_options.loadgeonames
 
     input_path = args[0]
     output_path = args[1]
@@ -255,26 +281,39 @@ if __name__ == "__main__":
     tagging_dict_file = args[9]
     ERconfig = args[10]
 
-    input_reduced = sc.sequenceFile(input_path).mapValues(lambda x: json.loads(x))
-    #
-    input_address = input_reduced.filter(lambda x: x[1]['a'] == 'http://schema.org/PostalAddress')
-    # print input_address.first()
-    dictc = D(sc, state_dict_path, all_city_path, city_faerie, state_faerie, all_faerie, prior_dict_file,tagging_dict_file)
-    #
+    dictc = D(sc, state_dict_path, all_city_path, city_faerie,
+              state_faerie, all_faerie, prior_dict_file, tagging_dict_file)
     d = sc.broadcast(dictc)
-    #
-    # EV = ProbabilisticER.initializeRecordLinkage(json.load(codecs.open(ERconfig)))
-    #
-    # EV_b = sc.broadcast(EV)
-    #
-    # input_rdd = input_address.flatMapValues(create_input_geonames)
-    # print input_rdd.first()
-    # resolved_geonames = input_rdd.mapValues(lambda x:processDoc(x, d)).mapValues(lambda x: ProbabilisticER.scoreCandidates(EV_b.value, x, d.value.priorDicts,
-    #                                                                                  d.value.taggingDicts, topk, 'raw'))
-    #
-    # resolved_geonames.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path)
-    resolved_geonames = sc.sequenceFile(output_path).mapValues(lambda x: json.loads(x))
-    results = input_address.join(resolved_geonames).mapValues(lambda x: merge_postal_addresses(x, d))
-    results_filtered = results.filter(lambda x: filter_broken_addresses(x[1]))
-    print results_filtered.first()
-    results_filtered.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path + "-resolved")
+    EV = ProbabilisticER.initializeRecordLinkage(json.load(codecs.open(ERconfig)))
+    EV_b = sc.broadcast(EV)
+
+    input_reduced = sc.sequenceFile(input_path).mapValues(lambda x: json.loads(x))
+    input_address = input_reduced.filter(lambda x: x[1]['a'] == 'http://schema.org/PostalAddress')
+
+    # initialise as None to avoid running into errors
+    resolved_geonames = None
+    if rungeonames:
+        input_rdd = input_address.flatMapValues(create_input_geonames)
+        # resolved_geonames = input_rdd.mapValues(lambda x: processDoc(x, d)).\
+        #     mapValues(lambda x: ProbabilisticER.scoreCandidates(EV_b.value, x, d.value.priorDicts,
+        #                                                         d.value.taggingDicts, topk, 'raw'))
+        resolved_geonames = input_rdd.mapValues(lambda x:processDoc(x, d)).\
+            mapValues(lambda x: reformatDocs(x, d.value.all_city_dict)).\
+            mapValues(lambda x: ProbabilisticER.scoreCandidates
+            (EV_b.value, x, d.value.priorDicts, d.value.taggingDicts, topk, 'raw'))
+
+        resolved_geonames.persist(StorageLevel.MEMORY_AND_DISK)
+        resolved_geonames.setName('RESOLVED_GEONAMES')
+        resolved_geonames.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path)
+    elif loadgeonames:
+        resolved_geonames = sc.sequenceFile(output_path).mapValues(lambda x: json.loads(x))
+
+    if resolved_geonames:
+        results = input_address.join(resolved_geonames).mapValues(lambda x: merge_postal_addresses(x, d))
+        results_filtered = results.filter(lambda x: filter_broken_addresses(x[1]))
+        results_filtered.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path + "-resolved")
+    else:
+        print "resolved_geonames is none"
+
+
+

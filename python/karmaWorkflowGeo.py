@@ -1,9 +1,9 @@
 from pyspark import SparkContext, SparkConf, StorageLevel
-from workflow import Workflow
+from digWorkflow.workflow import Workflow
 from py4j.java_gateway import java_import
 from optparse import OptionParser
 from digSparkUtil.fileUtil import FileUtil
-from basicMerger import EntityMerger
+from digEntityMerger.basicMerger import EntityMerger
 
 # Executed as:
 #
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     input_alternate_city_rdd = workflow.batch_read_csv(city_alternate_name_input)
     print input_alternate_city_rdd.first()
 
-    inputRDD_partitioned = inputRDD.partitionBy(100)
+    inputRDD_partitioned = inputRDD.partitionBy(10)
 
     #2. Apply the karma Model
     cityRDD1 = workflow.run_karma(inputRDD_partitioned,
@@ -82,22 +82,37 @@ if __name__ == "__main__":
 
     # Apply the context
     cityRDD = workflow.apply_context(cityRDD1, city_context)
-    stateRDD = workflow.apply_context(stateRDD1, state_context)
-    countryRDD = workflow.apply_context(countryRDD1, country_context)
-    cityAlternateRDD = workflow.apply_context(city_alternate_names_rdd, city_context)
+    cityRDD = cityRDD.persist(StorageLevel.MEMORY_AND_DISK)
+    cityRDD.setName("cityRDD")
 
-    city_reduced_rdd = workflow.reduce_rdds(cityRDD, cityAlternateRDD)
+    stateRDD = workflow.apply_context(stateRDD1, state_context)
+    stateRDD = stateRDD.persist(StorageLevel.MEMORY_AND_DISK)
+    stateRDD.setName("stateRDD")
+
+
+    countryRDD = workflow.apply_context(countryRDD1, country_context)
+    countryRDD = countryRDD.persist(StorageLevel.MEMORY_AND_DISK)
+    countryRDD.setName("countryRDD")
+
+    cityAlternateRDD = workflow.apply_context(city_alternate_names_rdd, city_context)
+    cityAlternateRDD = cityAlternateRDD.persist(StorageLevel.MEMORY_AND_DISK)
+    cityAlternateRDD.setName("cityAlternateRDD")
+    fileUtil.save_file(cityAlternateRDD, outputFilename+"_cityalternate", "text", "json")
+
+    city_reduced_rdd = workflow.reduce_rdds(10, cityRDD, cityAlternateRDD)
+    city_reduced_rdd = city_reduced_rdd.persist(StorageLevel.MEMORY_AND_DISK)
+    city_reduced_rdd.setName("city_reduced_rdd")
 
     # fileUtil.save_file(countryRDD, outputFilename+"_Country", "text", "json")
     # fileUtil.save_file(city_reduced_rdd, outputFilename+"_City", "text", "json")
     # fileUtil.save_file(stateRDD, outputFilename+"_State", "text", "json")
-    fileUtil.save_file(cityAlternateRDD, outputFilename+"_cityalternate", "text", "json")
 
 
-    mergeRDD1 = EntityMerger.merge_rdds(city_reduced_rdd, "address.addressCountry", countryRDD,100)
+
+    mergeRDD1 = EntityMerger.merge_rdds(city_reduced_rdd, "address.addressCountry", countryRDD,10)
     # fileUtil.save_file(mergeRDD1, outputFilename+"_State_Country", "text", "json")
 
-    mergeRDD2 = EntityMerger.merge_rdds(mergeRDD1, "address.addressRegion", stateRDD,100)
+    mergeRDD2 = EntityMerger.merge_rdds(mergeRDD1, "address.addressRegion", stateRDD,10)
 
     #3. Save the output
     mergeRDD2_filter = mergeRDD2.filter(lambda x: 'populationOfArea' in x[1])
