@@ -47,7 +47,7 @@ def processDoc(line, d):
             jsonline = dict(document=jsdoc,entities=jsent, processtime=process_time)
         else:
             jsdoc = dict(id=uri,value=city + ","+state+","+country)
-            jsonline = dict(document=jsdoc,entities=[], processtime=process_time)
+            jsonline = dict(document=jsdoc,entities={}, processtime=process_time)
 
         return jsonline
 
