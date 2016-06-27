@@ -81,11 +81,7 @@ def search(country_can, uri, state, city, d):
             states_can = faerie.processDoc(queryline, d.value.state_faerie_dict)
 
         cities_can = searchcity(states_can, uri, city, d)
-    if cities_can:
-        return cities_can
-    else:
-        # if type(states_can["entities"]) == dict:
-        return states_can
+    return cities_can
 
 
 #search the city candidates.
