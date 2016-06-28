@@ -50,14 +50,14 @@ def get_value_json(path, doc, separator='.'):
 
 def get_only_city_name(x):
         values = x.split(" ")
-        if len(values) > 1 and len(values[len(values) - 1]) == 2 and values[len(values) - 1].upper() != 'DC':
+        if len(values) > 1 and len(values[len(values) - 1]) == 2 and (values[len(values) - 1].upper() != 'DC' or values[len(values) - 1].upper() != 'UK' or values[len(values) - 1].upper() != 'US'):
             return " ".join(values[0:len(values) - 1])
         return x
 
 
 def get_state_from_city(x):
     values = x.split(" ")
-    if len(values) > 1 and len(values[len(values) - 1]) == 2 and values[len(values) - 1].upper() != 'DC':
+    if len(values) > 1 and len(values[len(values) - 1]) == 2 and (values[len(values) - 1].upper() != 'DC' or values[len(values) - 1].upper() != 'UK' or values[len(values) - 1].upper() != 'US'):
         short_state = values[len(values) - 1].upper()
         try:
             idx = us_states_codes.index(short_state)
@@ -103,6 +103,18 @@ def create_input_geonames(line):
 
             if out['country'].strip() == '' and out['region'].strip() == '' and out['locality'].strip() == '':
                 print line['uri']
+
+            if out['locality'].strip() == '':
+                n = ''
+                if out['region'].strip() != '':
+                    n = out['region']
+                if out['country'].strip() != '':
+                    if n == '':
+                        n = out['country']
+                    else:
+                        n += ',' + out['country']
+
+                out['locality'] = n
 
             out['uri'] = line['uri']
 
@@ -184,17 +196,11 @@ def merge_postal_addresses(x, d):
     if old:
         if new:
             if len(new['matches']) >= 1:
-                score = float(new['matches'][0]['score'])
-                if score >= 0.4502:
-                    address = create_address_object(new, old, d)
-                    old = address
-                else:
-                    old = create_pa_with_name(old)
-            else:
-                old = create_pa_with_name(old)
-        else:
-            old = create_pa_with_name(old)
+                address = create_address_object(new, old, d)
+                old = address
+                return old
 
+    old = create_pa_with_name(old)
     return old
 
 
@@ -302,6 +308,7 @@ if __name__ == "__main__":
             mapValues(lambda x: ProbabilisticER.scoreCandidates
             (EV_b.value, x, d.value.priorDicts, d.value.taggingDicts, topk, 'raw'))
 
+        print resolved_geonames.first()
         resolved_geonames.persist(StorageLevel.MEMORY_AND_DISK)
         resolved_geonames.setName('RESOLVED_GEONAMES')
         resolved_geonames.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path)
@@ -310,8 +317,9 @@ if __name__ == "__main__":
 
     if resolved_geonames:
         results = input_address.join(resolved_geonames).mapValues(lambda x: merge_postal_addresses(x, d))
-        results_filtered = results.filter(lambda x: filter_broken_addresses(x[1]))
-        results_filtered.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path + "-resolved")
+        print results.first()
+        # results_filtered = results.filter(lambda x: filter_broken_addresses(x[1]))
+        results.mapValues(lambda x: json.dumps(x)).saveAsSequenceFile(output_path + "-resolved")
     else:
         print "resolved_geonames is none"
 
