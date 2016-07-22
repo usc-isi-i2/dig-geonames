@@ -25,33 +25,31 @@ def processDoc(line, d):
         state = line["region"]
         country = line["country"]
         start_time = time.clock()
-
         queryline = {"uri":uri,"name":country}
         country_can = faerie.processDoc(queryline, d.value.all_faerie_dict["countries_dict"])
 
         cities_can = search(country_can, uri, state, city, d)
         process_time = str((time.clock() - start_time)*1000)
-        print "Time take to process: " + json.dumps(line) + " is " + process_time
-        jsent = []
         if cities_can and 'entities' in cities_can:
-            for eid in cities_can["entities"]:
-                entity = cities_can["entities"][eid]
-                snc = get_value_json(eid + "$snc", d.value.all_city_dict,'$')
-                if snc != '':
-                    value_obj = dict(city=entity["value"],state=snc.split(",")[0],country=snc.split(",")[1])
-                    temp = dict(id=eid,value=value_obj,candwins=entity["candwins"])
-                    jsent.append(temp)
-                else:
-                    value_obj = dict(state=entity["value"])
-                    temp = dict(id=eid,value=value_obj ,candwins=entity["candwins"])
-                    jsent.append(temp)
-            jsdoc = dict(id=cities_can["document"]["id"],value=cities_can["document"]["value"] + ","+state+","+country)
+            jsent = cities_can["entities"]
+            # for eid in cities_can["entities"]:
+            #     entity = cities_can["entities"][eid]
+            #     snc = get_value_json(eid + "$snc", d.value.all_city_dict,'$')
+            #     if snc != '':
+            #         value_obj = dict(city=entity["value"],state=snc.split(",")[0],country=snc.split(",")[1])
+            #         temp = dict(id=eid,value=value_obj,candwins=entity["candwins"])
+            #         jsent.append(temp)
+            #     else:
+            #         value_obj = dict(state=entity["value"])
+            #         temp = dict(id=eid,value=value_obj ,candwins=entity["candwins"])
+            #         jsent.append(temp)
+            jsdoc = dict(id=uri,value=city + ","+state+","+country)
             jsonline = dict(document=jsdoc,entities=jsent, processtime=process_time)
-            return jsonline
         else:
-            "cities_can has no entities:", city + "," + state + "," + country + "," + uri
+            jsdoc = dict(id=uri,value=city + ","+state+","+country)
+            jsonline = dict(document=jsdoc,entities={}, processtime=process_time)
 
-    return ''
+        return jsonline
 
 #search the states based on the country candidates then search the city candidates based on the states candidates.
 def search(country_can, uri, state, city, d):
@@ -63,8 +61,13 @@ def search(country_can, uri, state, city, d):
                 queryline = {"uri":uri,"name":state}
                 temp = faerie.processDoc(queryline, d.value.all_faerie_dict[country_uri]["states_dict"])
                 if 'entities' in states_can:
-                    states_can["entities"] = dict(states_can["entities"],
-                                          **temp["entities"])
+                    if type(states_can["entities"]) == dict:
+                        states_can["entities"] = dict(states_can["entities"],
+                                            **temp["entities"])
+                    elif temp["entities"] != {}:
+                        states_can = temp
+                    else:
+                        states_can["entities"] += d.value.all_faerie_dict[country_uri]["states_dict"][4].values()
                 else:
                     states_can = temp
             if states_can == None or states_can == {} or states_can["entities"] == {}:
@@ -78,10 +81,8 @@ def search(country_can, uri, state, city, d):
             states_can = faerie.processDoc(queryline, d.value.state_faerie_dict)
 
         cities_can = searchcity(states_can, uri, city, d)
-    if cities_can:
-        return cities_can
-    else:
-        return states_can
+    return cities_can
+
 
 #search the city candidates.
 def searchcity(states_can, uri, city, d):

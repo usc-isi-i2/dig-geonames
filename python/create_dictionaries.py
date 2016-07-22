@@ -2,7 +2,6 @@ import codecs
 import json
 from optparse import OptionParser
 import faerie
-import tagging
 import math
 
 
@@ -24,7 +23,7 @@ def createGeonamesPriorDict(all_city_dict):
     pdict = {}
     for uri, val in all_city_dict.items():
         population = int(val['populationOfArea'])
-        effective_population = population + (int(1e7) if val['snc'].split(',')[1].lower() == 'united states' else 0)
+        effective_population = population + (int(1e7) if val['country'][0].lower() == 'united states' else 0)
         prior = (1.0 - 1.0/math.log(effective_population + 2000))
         pdict.update({uri: prior})
     return json.dumps(pdict)
@@ -40,44 +39,61 @@ def createDict1(path):
         line = json.loads(line)
         if 'name' in line:
             city = line["name"]
-            population = line['populationOfArea']
+            population = '0'
+            if 'populationOfArea' in line:
+                population = line['populationOfArea']
+            longitude = ''
+            latitude = ''
+            if 'geo' in line:
+                longitude = line['geo']['longitude']
+                latitude = line['geo']['latitude']
 
             city_uri = line["uri"]
-            try:
+            country = line["address"]["addressCountry"]["name"]
+            if type(country) != list:
+                    country = [country]
+            country_uri = line["address"]["addressCountry"]["sameAs"]
+            if "addressRegion" in line["address"] and "name" in line["address"]["addressRegion"] and "sameAs" in line["address"]["addressRegion"]:
                 state = line["address"]["addressRegion"]["name"]
+                if type(state) != list:
+                    state = [state]
                 state_uri = line["address"]["addressRegion"]["sameAs"]
-                country = line["address"]["addressCountry"]["name"]
-                country_uri = line["address"]["addressCountry"]["sameAs"]
                 wholestates_dicts[state_uri] = {}
                 wholestates_dicts[state_uri]["name"] = state
                 wholestates_dicts[state_uri]["country_uri"] = country_uri
+            else:
+                state = []
+                state_uri = "N/A"
+            try:
+                stateDict = dicts[country_uri]["states"]
                 try:
-                    stateDict = dicts[country_uri]["states"]
-                    try:
-                        stateDict[state_uri]["cities"][city_uri] = {}
-                        stateDict[state_uri]["cities"][city_uri]["name"] = city
-                        stateDict[state_uri]["cities"][city_uri]["snc"] = state + "," + country
-                    except KeyError:
-                        stateDict[state_uri] = {"cities": {city_uri: {"name": city, "snc": state + "," + country}},
-                                                    "name": state}
+                    stateDict[state_uri]["cities"][city_uri] = {}
+                    stateDict[state_uri]["cities"][city_uri]["name"] = city
+                    stateDict[state_uri]["cities"][city_uri]["state"] = state
+                    stateDict[state_uri]["cities"][city_uri]["country"] = country
                 except KeyError:
-                    dicts[country_uri] = {"states": {
-                            state_uri: {"name": state, "cities": {city_uri: {"name": city, "snc": state + "," + country}}}},
-                                              "name": country}
-            except:
-                state = ""
-                country = ""
+                    stateDict[state_uri] = {"cities": {city_uri: {"name": city, "state": state, "country": country}},
+                                                "name": state}
+            except KeyError:
+                dicts[country_uri] = {"states": {
+                        state_uri: {"name": state, "cities": {city_uri: {"name": city, "state": state, "country": country}}}},
+                                            "name": country}
 
-
-            if int(population) >= 25000:
-                wholecities_dicts[city_uri] = {}
-                wholecities_dicts[city_uri]["name"] = city
-                wholecities_dicts[city_uri]["snc"] = state + "," + country
-                wholecities_dicts[city_uri]['populationOfArea'] = population
-            all_cities_dict[city_uri] = {}
-            all_cities_dict[city_uri]['name'] = city
-            all_cities_dict[city_uri]['snc'] = state + "," + country
-            all_cities_dict[city_uri]['populationOfArea'] = population
+            if state != '' and country != '':
+                if int(population) >= 25000:
+                    wholecities_dicts[city_uri] = {}
+                    wholecities_dicts[city_uri]["name"] = city
+                    wholecities_dicts[city_uri]["state"] = state
+                    wholecities_dicts[city_uri]["country"] = country
+                    wholecities_dicts[city_uri]['populationOfArea'] = population
+                all_cities_dict[city_uri] = {}
+                all_cities_dict[city_uri]['name'] = city
+                all_cities_dict[city_uri]['state'] = state
+                all_cities_dict[city_uri]['country'] = country
+                all_cities_dict[city_uri]['populationOfArea'] = population
+                if longitude!= '' and latitude != '':
+                    all_cities_dict[city_uri]['longitude'] = longitude
+                    all_cities_dict[city_uri]['latitude'] = latitude
 
     return wholecities_dicts, wholestates_dicts, dicts, all_cities_dict
 
@@ -108,15 +124,10 @@ def create_tagging_dict(refPath):
         state = get_value_json('address.addressRegion.name', jsonobj).lower()
         if state != '':
             states.add(state)
-            if len(states) >= 5:
-                states |= tagging.edits1(state)
 
         country = get_value_json('address.addressCountry.name', jsonobj).lower()
         if country != '':
-            print country
             countries.add(country)
-            if len(country) >= 5:
-                countries |= tagging.edits1(country)
 
         if jsonobj['a'] == 'City':
             names=[]
@@ -124,14 +135,12 @@ def create_tagging_dict(refPath):
                 names_d = jsonobj['name']
                 if isinstance(names_d, list):
                     names = names_d
-                elif isinstance(names_d, str):
+                else:
                     names.append(names_d)
 
                 for name in names:
                     citites.add(name.lower())
-                    if len(name) >= 5:
-                        citites |= tagging.edits1(name)
-    print countries
+    # print citites
     return {'city': {x:0 for x in citites},
             'state': {x:0 for x in states},
             'country': {x:0 for x in countries}}
@@ -148,6 +157,7 @@ if __name__ == "__main__":
     input_path = args[0]
     output_path = args[1]
     f1, f2, f3, f4 = createDict1(input_path)
+
 
     state_dict = codecs.open(output_path + "/state_dict.json", 'w')
     state_dict.write(json.dumps(f2))
